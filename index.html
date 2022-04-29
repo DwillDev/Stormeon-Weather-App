@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <h1>Stormeon: A Pokemon Weather App</h1>
+        <!-- <img src="/img/stormeon_logo_ball.svg" class="logo" /> -->
+        <nav class="header-nav">
+          <span class="iconify refresh" data-icon="mdi:refresh"></span>
+          <span class="iconify location" data-icon="mdi:pokemon-go"></span>
+          <span class="iconify menu" data-icon="mdi:menu"></span>
+          <div class="nav-page">
+            <div class="nav-page-content">
+              <section class="alt-nav">
+                <span class="iconify search" data-icon="mdi:magnify"></span>
+                <form id="search-form">
+                  <label for="search">Search:</label>
+                  <input type="search" id="search" name="search" list="cities">
+                  <datalist id="cities"></datalist>
+                  <button type="submit">Submit</button>
+                </form>
+              </section>
+              <section class="cities">
+                <span class="iconify add-city" data-icon="mdi:plus"></span>
+                <div class="city-box">
+                  <p class="temp"></p>
+                  <img src="" alt="" class="pixel-eevee" />
+                  <p class="city"></p>
+                  <p class="country"></p>
+                  <p class="rain"></p>
+                  <p class="wind"></p>
+                </div>
+              </section>
+              <section class="settings">
+                <div class="unit">
+                  <label for="toggle">
+                    <input type="checkbox" id="toggle" />
+                  </label>
+                </div>
+              </section>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="home">
+          <section class="normal-fc today">
+            <div class="weather">
+              <h2 class="city"></h2>
+              <p class="date"></p>
+              <p class="time"></p>
+              <p class="temp"></p>
+              <div class="high-low">
+                <p class="low"></p>
+                <p class="high"></p>
+              </div>
+            </div>
+            <div class="weather-icon today"></div>
+          </section>
+          <section class="poke-fc">
+            <div class="advice">
+              <img src="" alt="" class="type" />
+              <p class="poke-words"></p>
+            </div>
+            <img src="" alt="" class="3d-eevee" />
+          </section>
+          <section class="extra">
+            <div class="wind con">
+              <span class="iconify" data-icon="mdi:weather-windy"></span>
+              <p class="text"></p>
+            </div>
+            <div class="precip con">
+              <span class="iconify" data-icon="mdi:water-outline"></span>
+              <p class="text"></p>
+            </div>
+            <div class="humidity con">
+              <span class="iconify" data-icon="mdi:air-filter"></span>
+              <p class="text"></p>
+            </div>
+            <div class="uv con">
+              <span class="iconify" data-icon="carbon:uv-index-alt"></span>
+              <p class="text"></p>
+            </div>
+          </section>
+          <span class="iconify next" data-icon="mdi:chevron-down"></span>
+        </div>
+        <div class="more">
+          <section class="hour-fc future">
+            <h3>Hourly Forecast</h3>
+            <div class="sun">
+              <div class="sunrise">
+                <span class="iconify" data-icon="mdi:weather-sunset-up"></span>
+                <p class="rise-time"></p>
+              </div>
+              <div class="sunset">
+                <span class="iconify" data-icon="mdi:weather-sunset-down"></span>
+                <p class="set-time"></p>
+              </div>
+            </div>
+            <div class="hour chart"></div>
+          </section>
+          <section class="tomorrow-fc future">
+            <h3>Tomorrow's Forecast</h3>
+            <div class="weather-icon tomorrow"></div>
+            <div class="normal-fc tomorrow">
+              <p class="temp"></p>
+              <p class="condition"></p>
+            </div>
+          </section>
+          <section class="week-fc future">
+            <h3>7-Day Forecast</h3>
+            <div class="chart"></div>
+          </section>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="/js/script-one-call.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  </body>
+</html>
