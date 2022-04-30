@@ -1,5 +1,12 @@
+//OpenWeather API Key
 let apiKey = '9b9bc44cc70f3fd327b277e80a6e788b';
-let gAPIKey = 'AIzaSyBvkNADzfb9S1sz8WNOU3rlpmk2qLd4gBU';
+
+//(Temp, move to css later) change icons to blocks
+let icons = Array.from(document.querySelectorAll('.iconify'));
+for (i = 0; i < icons.length; i++) {
+  icons[i].style.display = 'block';
+}
+
 //Switch between Imperial and Metric
 let switchUnits = document.querySelector('#toggle');
 let units;
@@ -22,25 +29,36 @@ switchUnits.addEventListener('change', () => {
   getWeather();
 });
 
-//Refresh Data :Fix Tomorrow
-// let refresh = document.querySelector('.refresh');
-// document.addEventListener('click', (e) => {
-//   if (e.target.value == refresh) {
-//     getLocation();
-//   }
-// });
+//Refresh Data
+document.addEventListener('click', (e) => {
+  if (e.target == document.querySelector('.refresh')) {
+    getWeather();
+  }
+});
 
-//Use current location :Fix Tomorrow
+//Search box setup
+let autocomplete;
+let searchLocation = () => {
+  let input = document.querySelector('#search');
+  let options = {
+    types: ['(regions)'],
+    fields: ['geometry.location', 'vicinity'],
+  };
+  autocomplete = new google.maps.places.Autocomplete(input, options);
+  getCityGoogle();
+};
+
 let lat;
 let lon;
-let locationTrigger = document.querySelector('.location');
+
+//Use current location
 let getCurrentLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
-      unitToggle();
-      getWeather();
+
+      getCityBrowser();
     });
   } else {
     alert('geolocation not supported or denied');
@@ -48,26 +66,42 @@ let getCurrentLocation = () => {
 };
 
 document.addEventListener('click', (e) => {
-  if (e.target.value == locationTrigger) {
+  if (e.target == document.querySelector('.location')) {
     getCurrentLocation();
   }
 });
 
-//Search for cities (Change tomorrow)
-let searchLocation = () => {
-  let input = document.querySelector('#search');
-  const autocomplete = new google.maps.places.Autocomplete(input);
+//Search for cities
+let getCityBrowser = () => {
+  fetch(
+    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+  )
+    .then((res) => res.json())
+    .then((city) => {
+      document.querySelector('.normal-fc .city').innerHTML = city.locality;
+      unitToggle();
+      getWeather();
+    });
 };
 
+let getCityGoogle = () => {
+  google.maps.event.addListener(autocomplete, 'place_changed', () => {
+    result = autocomplete.getPlace();
+    lat = result.geometry.location.lat();
+    lon = result.geometry.location.lng();
+    document.querySelector('.normal-fc .city').innerHTML = result.vicinity;
+    unitToggle();
+    getWeather();
+  });
+};
 
+//Get weather from One Call API
 let getWeather = () => {
-  //One Call API
   fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=alerts,minutely&appid=${apiKey}`
   )
     .then((res) => res.json())
     .then((weather) => {
-      //Main (currently missing city)
       let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       let months = [
         'January',
@@ -83,12 +117,16 @@ let getWeather = () => {
         'November',
         'December',
       ];
+
+      //Current
       let d = new Date();
-      document.querySelector('.date').innerHTML = `${days[d.getDay()]} - ${
-        months[d.getMonth()]
-      } ${d.getDate()}, ${d.getFullYear()}`;
+      let now = new Date(weather.current.dt * 1000);
+      document.querySelector('.date').innerHTML = `${days[now.getDay()]} - ${
+        months[now.getMonth()]
+      } ${now.getDate()}, ${now.getFullYear()}`;
       document.querySelector('.time').innerHTML = d.toLocaleTimeString([], {
-        hour: '2-digit',
+        timeZone: weather.timezone,
+        hour: 'numeric',
         minute: '2-digit',
       });
       document.querySelector('.normal-fc .temp').innerHTML = `${Math.round(
@@ -113,11 +151,13 @@ let getWeather = () => {
       let sunrise = new Date(weather.current.sunrise * 1000);
       let sunset = new Date(weather.current.sunset * 1000);
       document.querySelector('.rise-time').innerHTML = sunrise.toLocaleTimeString([], {
-        hour: '2-digit',
+        timeZone: weather.timezone,
+        hour: 'numeric',
         minute: '2-digit',
       });
       document.querySelector('.set-time').innerHTML = sunset.toLocaleTimeString([], {
-        hour: '2-digit',
+        timeZone: weather.timezone,
+        hour: 'numeric',
         minute: '2-digit',
       });
       let hourlyF = '';
@@ -125,6 +165,7 @@ let getWeather = () => {
         hourlyF += `
         <div class="hour">
           <p class = "time">${new Date(hour.dt * 1000).toLocaleTimeString([], {
+            timeZone: weather.timezone,
             hour: 'numeric',
             hour12: 'true',
           })}</p>
