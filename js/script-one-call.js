@@ -1,5 +1,5 @@
 let apiKey = '9b9bc44cc70f3fd327b277e80a6e788b';
-
+let gAPIKey = 'AIzaSyBvkNADzfb9S1sz8WNOU3rlpmk2qLd4gBU';
 //Switch between Imperial and Metric
 let switchUnits = document.querySelector('#toggle');
 let units;
@@ -23,12 +23,12 @@ switchUnits.addEventListener('change', () => {
 });
 
 //Refresh Data :Fix Tomorrow
-let refresh = document.querySelector('.refresh');
-document.addEventListener('click', (e) => {
-  if (e.target.value == refresh) {
-    getLocation();
-  }
-});
+// let refresh = document.querySelector('.refresh');
+// document.addEventListener('click', (e) => {
+//   if (e.target.value == refresh) {
+//     getLocation();
+//   }
+// });
 
 //Use current location :Fix Tomorrow
 let lat;
@@ -53,33 +53,12 @@ document.addEventListener('click', (e) => {
   }
 });
 
-//Search for cities
-let searchForm = document.querySelector('#search-form');
-let searchBox = document.querySelector('#search');
-let input;
-searchForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  input = searchBox.value;
-  getLocation();
-});
-
-let getLocation = () => {
-  //Geocode API
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${apiKey}`)
-    .then((res) => res.json())
-    .then((city) => {
-      city.forEach((place) => {
-        let option = document.createElement('option');
-        option.value = `${place.name}, ${place.state}`;
-        document.querySelector('#cities').appendChild(option);
-      });
-      // document.querySelector('.normal-fc .city').innerHTML = city.name;
-      // lat = city.lat;
-      // lon = city.lon;
-      // unitToggle();
-      // getWeather();
-    });
+//Search for cities (Change tomorrow)
+let searchLocation = () => {
+  let input = document.querySelector('#search');
+  const autocomplete = new google.maps.places.Autocomplete(input);
 };
+
 
 let getWeather = () => {
   //One Call API
@@ -177,3 +156,5 @@ let getWeather = () => {
       document.querySelector('.week-fc .chart').innerHTML = weeklyF;
     });
 };
+
+window.addEventListener('load', searchLocation);
