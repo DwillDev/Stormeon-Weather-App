@@ -1,0 +1,51 @@
+//Fonts
+$open:'Open Sans', sans-serif;
+$mon:'Montserrat', sans-serif;
+
+//Leafeon Color
+$lf-primary: hsla(42, 62%, 90%, 1);
+$lf-secondary: hsla(157, 52%, 40%, 1);
+$lf-tertiary:hsla(170, 33%, 29%, 1);
+$lf-gradient:linear-radient(to bottom,$lf-secondary,$lf-tertiary);
+
+//Sylveon Color
+$sv-primary: hsla(0, 0%, 100%, 1);
+$sv-secondary: hsla(347, 68%, 69%, 1);
+$sv-tertiary:hsla(356, 82%, 87%, 1);
+$sv-gradient:linear-radient(to bottom,$sv-secondary,$sv-tertiary);
+
+//Umbreon Color
+$ub-primary:hsla(50, 82%, 63%, 1);
+$ub-secondary:hsla(225, 29%, 23%, 1);
+$ub-tertiary:hsla(240, 11%, 43%, 1);
+$ub-gradient:linear-radient(to bottom,$ub-secondary,$ub-tertiary);
+
+//Flareon Color
+$fl-primary:hsla(49, 100%, 82%, 1);
+$fl-secondary:hsla(14, 91%, 63%, 1);
+$fl-tertiary:hsla(353, 64%, 55%, 1);
+$fl-gradient:linear-radient(to bottom,$fl-secondary,$fl-tertiary);
+
+//Jolteon Color
+$jt-primary:hsla(60, 100%, 77%, 1);
+$jt-secondary:hsla(43, 52%, 34%, 1);
+$jt-tertiary:hsla(45, 57%, 55%, 1);
+$jt-gradient:linear-radient(to bottom,$jt-secondary,$jt-tertiary);
+
+//Vaporeon Color
+$vp-primary:hsla(194, 77%, 76%, 1);
+$vp-secondary:hsla(195, 80%, 32%, 1);
+$vp-tertiary:hsla(198, 72%, 22%, 1);
+$vp-gradient:linear-radient(to bottom,$vp-secondary,$vp-tertiary);
+
+//Glaceon Color
+$gc-primary:hsla(185, 73%, 76%, 1);
+$gc-secondary:hsla(240, 18%, 27%, 1);
+$gc-tertiary:hsla(208, 68%, 60%, 1);
+$gc-gradient:linear-radient(to bottom,$gc-secondary,$gc-tertiary);
+
+//Espeon Color
+$ep-primary:hsla(300, 59%, 84%, 1);
+$ep-secondary:hsla(300, 25%, 39%, 1);
+$ep-tertiary:hsla(300, 28%, 59%, 1);
+$ep-gradient:linear-radient(to bottom,$ep-secondary,$ep-tertiary);
