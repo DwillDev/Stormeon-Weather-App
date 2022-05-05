@@ -1,11 +1,13 @@
 //OpenWeather API Key
 let apiKey = '9b9bc44cc70f3fd327b277e80a6e788b';
 
-//(Temp, move to css later) change icons to blocks
-let icons = Array.from(document.querySelectorAll('.iconify'));
-for (i = 0; i < icons.length; i++) {
-  icons[i].style.display = 'block';
-}
+//Toggle sidebar
+document.addEventListener('click', (e) => {
+  if (e.target == document.querySelector('.menu')) {
+    document.querySelector('.sidebar-nav').classList.toggle('hide');
+  }
+});
+
 
 //Switch between Imperial and Metric
 let switchUnits = document.querySelector('#toggle');
@@ -15,11 +17,11 @@ let speedSymbol;
 let unitToggle = () => {
   if (switchUnits.checked) {
     units = 'metric';
-    tempSymbol = '&#8451';
+    tempSymbol = '<i class="wi wi-celsius unit"></i>';
     speedSymbol = 'm/s';
   } else {
     units = 'imperial';
-    tempSymbol = '&#8457;';
+    tempSymbol = '<i class="wi wi-fahrenheit unit"></i>';
     speedSymbol = 'mph';
   }
 };
@@ -131,7 +133,7 @@ let getWeather = () => {
       });
       document.querySelector('.normal-fc .temp').innerHTML = `${Math.round(
         weather.current.temp
-      )} ${tempSymbol}`;
+      )}${tempSymbol}`;
       document.querySelector('.high-low .low').innerHTML = Math.round(weather.daily[0].temp.min);
       document.querySelector('.high-low .high').innerHTML = Math.round(weather.daily[0].temp.max);
 
@@ -170,7 +172,7 @@ let getWeather = () => {
             hour12: 'true',
           })}</p>
           <div class="weather-icon"></div>
-          <p class="temp">${Math.round(hour.temp)} ${tempSymbol}</p>
+          <p class="temp">${Math.round(hour.temp)}</p>
         </div>`;
       });
       document.querySelector('.hour-fc .chart').innerHTML = hourlyF;
@@ -178,7 +180,7 @@ let getWeather = () => {
       //Tomorrow
       document.querySelector('.tomorrow .temp').innerHTML = `${Math.round(
         weather.daily[1].temp.day
-      )} ${tempSymbol}`;
+      )}`;
       document.querySelector('.tomorrow .condition').innerHTML =
         weather.daily[1]['weather'][0]['main'];
 
@@ -190,8 +192,8 @@ let getWeather = () => {
           <p class="weekday">${days[new Date(day.dt * 1000).getDay()]}</p>
           <div class="weather-icon"></div>
           <div class="high-low">
-          <p class="low">${Math.round(day.temp.min)} ${tempSymbol}</p>
-          <p class="high">${Math.round(day.temp.max)} ${tempSymbol}</p>
+          <p class="low temp">${Math.round(day.temp.min)}</p>
+          <p class="high temp">${Math.round(day.temp.max)}</p>
         </div>`;
       });
       document.querySelector('.week-fc .chart').innerHTML = weeklyF;
@@ -199,3 +201,6 @@ let getWeather = () => {
 };
 
 window.addEventListener('load', searchLocation);
+
+//Remove later mayhaps
+window.addEventListener('load', getCurrentLocation());
