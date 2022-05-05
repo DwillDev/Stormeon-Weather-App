@@ -1,15 +1,17 @@
 .main__current-weather {
-
+  height: 94vh;
 }
 
 .current-weather {
-  &__simple{
-    display:flex;
+  &__simple {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
+    grid-area: simple;
   }
   &__temp {
-    font-size: 8rem;
+    font-size: 7rem;
     font-weight: $reg;
   }
 
@@ -17,7 +19,7 @@
     position: relative;
     top: -2.8rem;
     left: 0.5rem;
-    font-size: 5rem;
+    font-size: 3.2rem;
   }
 
   &__high-low {
@@ -25,7 +27,7 @@
   }
 
   &__high-low > * {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   &__low::before {
@@ -47,10 +49,9 @@
     padding-bottom: 0.3rem;
   }
 
-  &__date,
-  &__time {
-    font-size: 1.2rem;
-    padding-bottom: 0.3rem;
+  &__date, &__time {
+    @extend .current-weather__city;
+    font-size: 1.4rem;
   }
 
   &__icon--today .wi {
@@ -58,6 +59,11 @@
   }
 
   &__pokemon {
+    grid-area: poke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   &__extra {
@@ -65,15 +71,43 @@
     justify-content: space-between;
     text-align: center;
     line-height: 5rem;
+    grid-area: extra;
   }
 
   &__icon {
-    font-size: 3.5rem;
+    font-size: 3rem;
+  }
+}
+
+.wi-raindrop {
+  font-size: 4rem;
+}
+
+.pokemon {
+  &__type {
+    width: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  &__advice {
+    font-style: italic;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+  }
+
+  &__image {
+    width: 25rem;
   }
 }
 
 .main__icon {
   &--next {
-    justify-self: center;
+    margin: auto;
+    width: 100%;
+    font-size:4rem;
+    grid-area: next;
   }
 }

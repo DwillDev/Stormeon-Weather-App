@@ -1,14 +1,11 @@
-// .wrapper {
-//   display: grid;
-//   row-gap: 2rem;
-//   grid-template-areas: "nav"
-//   "."
-//   ".";
-// }
-
-.main__current-weather {
-  display: grid;
-  // justify-content: center;
-  // grid-template-rows: 1fr 1fr 1fr auto;
-  // grid-template-areas: 'current' 'poke' 'extra' 'next';
+.main__current-weather{
+  display:grid;
+  align-items: center;
+  grid-template-rows: 1fr 40rem 1fr .5fr;
+  grid-template-areas:
+  'simple'
+  'poke'
+  'extra'
+  'next';
 }
+

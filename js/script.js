@@ -17,11 +17,11 @@ let speedSymbol;
 let unitToggle = () => {
   if (switchUnits.checked) {
     units = 'metric';
-    tempSymbol = '<i class="wi wi-celsius unit"></i>';
+    tempSymbol = '<i class="wi wi-celsius current-weather__unit"></i>';
     speedSymbol = 'm/s';
   } else {
     units = 'imperial';
-    tempSymbol = '<i class="wi wi-fahrenheit unit"></i>';
+    tempSymbol = '<i class="wi wi-fahrenheit current-weather__unit"></i>';
     speedSymbol = 'mph';
   }
 };
@@ -178,7 +178,7 @@ let getWeather = () => {
       document.querySelector('.future-weather__chart--hour').innerHTML = hourlyF;
 
       //Tomorrow
-      document.querySelector('.future-weather__temp--tomorrow').innerHTML = `${Math.round(
+      document.querySelector('.future-weather__temp').innerHTML = `${Math.round(
         weather.daily[1].temp.day
       )}`;
       document.querySelector('.future-weather__condition').innerHTML =

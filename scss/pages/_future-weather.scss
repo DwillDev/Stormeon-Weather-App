@@ -1,7 +1,5 @@
-.future-weather__temp {
-  &--tomorrow::after {
+.future-weather__temp::after {
     @extend %degree;
-  }
 }
 
 .hour {
