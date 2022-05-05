@@ -1,0 +1,17 @@
+.future-weather__temp {
+  &--tomorrow::after {
+    @extend %degree;
+  }
+}
+
+.hour {
+  &__temp::after {
+    @extend %degree;
+  }
+}
+
+.week {
+  &__low::after, &__high::after {
+    @extend %degree;
+  }
+}

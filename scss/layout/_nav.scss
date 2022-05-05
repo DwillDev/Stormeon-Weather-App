@@ -1,10 +1,10 @@
-.header-nav{
+.nav{
     position: relative;
     display:flex;
     justify-content: center;
     grid-area: nav;
 
-    .space-between{
+    &__divider{
         position:absolute;
         right:0;
         top:0;

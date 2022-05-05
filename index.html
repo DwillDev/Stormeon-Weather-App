@@ -15,7 +15,7 @@
         <!-- <h1>Stormeon: A Pokemon Weather App</h1> -->
         <!-- <img src="/img/stormeon_logo_ball.svg" class="logo" /> -->
         <nav class="header__nav nav">
-          <i class="nav_icon--refresh wi wi-refresh"></i>
+          <i class="nav__icon--refresh wi wi-refresh"></i>
           <div class="nav__divider">
             <span class="nav__icon--geolocation iconify" data-icon="mdi:pokemon-go"></span>
             <span class="nav__icon--menu iconify" data-icon="mdi:menu"></span>
@@ -67,7 +67,7 @@
                 <p class="current-weather__high"></p>
               </div>
             </div>
-            <div class="current-weather__icon">
+            <div class="current-weather__icon--today">
               <i class="wi wi-night-alt-storm-showers"></i>
             </div>
           </section>
@@ -83,7 +83,7 @@
               <i class="current-weather__icon--wind wi wi-strong-wind"></i>
               <p class="current-weather__text--wind"></p>
             </div>
-            <div class="current-weather__precip">
+            <div class="current-weather__rain">
               <i class="current-weather__icon--rain wi wi-raindrop"></i>
               <p class="current-weather__text--rain"></p>
             </div>
@@ -114,7 +114,7 @@
                 <p class="future-weather__set-time"></p>
               </div>
             </div>
-            <div class="hour chart"></div>
+            <div class="future-weather__chart--hour hour"></div>
           </section>
           <section class="future-weather__tomorrow">
             <h3 class="future-weather__header--tomorrow">Tomorrow's Forecast</h3>
@@ -126,7 +126,7 @@
           </section>
           <section class="future-weather__week">
             <h3 class="future-weather__header--week">7-Day Forecast</h3>
-            <div class="future-weather__chart"></div>
+            <div class="future-weather__chart--week week"></div>
           </section>
         </div>
       </main>

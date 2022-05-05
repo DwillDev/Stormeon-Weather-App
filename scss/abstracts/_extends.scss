@@ -12,6 +12,11 @@
     border:.1rem solid black;
 }
 
+%degree{
+    white-space:pre-wrap;
+    content:"\00B0";
+}
+
 %wp{
     white-space:pre-wrap;
 }

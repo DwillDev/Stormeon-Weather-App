@@ -1,0 +1,79 @@
+.main__current-weather {
+
+}
+
+.current-weather {
+  &__simple{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__temp {
+    font-size: 8rem;
+    font-weight: $reg;
+  }
+
+  &__unit {
+    position: relative;
+    top: -2.8rem;
+    left: 0.5rem;
+    font-size: 5rem;
+  }
+
+  &__high-low {
+    display: flex;
+  }
+
+  &__high-low > * {
+    font-size: 2rem;
+  }
+
+  &__low::before {
+    content: '\1F861  ';
+    @extend %wp;
+  }
+
+  &__low::after {
+    content: ' | ';
+    @extend %wp;
+  }
+
+  &__high::after {
+    content: ' \1F863';
+    @extend %wp;
+  }
+
+  &__city {
+    padding-bottom: 0.3rem;
+  }
+
+  &__date,
+  &__time {
+    font-size: 1.2rem;
+    padding-bottom: 0.3rem;
+  }
+
+  &__icon--today .wi {
+    font-size: 12rem;
+  }
+
+  &__pokemon {
+  }
+
+  &__extra {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    line-height: 5rem;
+  }
+
+  &__icon {
+    font-size: 3.5rem;
+  }
+}
+
+.main__icon {
+  &--next {
+    justify-self: center;
+  }
+}
