@@ -1,0 +1,17 @@
+h1 {
+  @extend %header;
+}
+
+h2 {
+  @extend %header;
+  font-size: 4rem;
+}
+
+h3 {
+  @extend %header;
+}
+
+p {
+  @extend %content;
+  font-size: 1.5rem;
+}

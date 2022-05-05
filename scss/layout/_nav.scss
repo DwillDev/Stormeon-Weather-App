@@ -1,0 +1,14 @@
+.header-nav{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    grid-area: nav;
+
+    .space-between{
+        position:absolute;
+        right:0;
+        top:0;
+        display:flex;
+        gap:1rem;
+    }
+}
