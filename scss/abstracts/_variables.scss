@@ -1,6 +1,24 @@
 //Fonts
 $inter:'Inter', sans-serif;
 
+//Font weights
+$bold: 500;
+$reg: 400;
+$thin: 300;
+
+//Font sizes
+$xlarge-txt: 7rem;
+$large-txt: 3.2rem;
+$med-txt: 2.2rem;
+$small-txt: 1.5rem;
+
+//Icon sizes
+$xlarge-i: 12rem;
+$large-i: 4rem;
+$med-i: 3.2rem;
+$small-i: 2.8rem;
+$xsmall-i:1.8rem;
+
 //Leafeon Color
 $lf-primary: hsla(42, 62%, 90%, 1);
 $lf-secondary: hsla(157, 52%, 40%, 1);
@@ -49,7 +67,3 @@ $ep-secondary:hsla(300, 25%, 39%, 1);
 $ep-tertiary:hsla(300, 28%, 59%, 1);
 $ep-gradient:linear-gradient(to top,$ep-secondary,$ep-tertiary,$ep-secondary,$ep-tertiary);
 
-//Font weights
-$bold: 500;
-$reg: 400;
-$thin: 300;

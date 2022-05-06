@@ -1,3 +1,42 @@
-.wi , .iconify{
-    font-size:2.8rem;
+.nav__icon {
+  font-size: $small-i;
+}
+
+.sidebar__icon {
+}
+
+.current-weather__icon {
+  font-size: $med-i;
+
+  &--unit {
+    position: relative;
+    top: -2.8rem;
+    left: 0.5rem;
+    font-size: $large-i;
+  }
+
+  &--today {
+    font-size: $xlarge-i;
+  }
+}
+
+.future-weather__icon {
+  &--sunrise,
+  &--sunset {
+    font-size: $xsmall-i;
+  }
+
+  &--tomorrow{
+    font-size:10rem;
+  }
+}
+
+.main__icon {
+  font-size: $large-i;
+
+  &--next {
+    margin: auto;
+    width: 100%;
+    grid-area: next;
+  }
 }

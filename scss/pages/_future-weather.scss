@@ -1,6 +1,70 @@
-.future-weather__temp::after {
-    @extend %degree;
+.main__future-weather{
+  height:100vh;
+
+  & > *{
+    background-color:black;
+    border-radius: 1.5rem;
+    padding:2rem;
+
+  }
 }
+
+.future-weather{
+  &__header{
+    text-align: center;
+  }
+
+  &__hour{
+
+  }
+
+  &__sun{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  &__sunrise , &__sunset{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:.3rem;
+  }
+
+  &__content{
+    
+
+    &--tomorrow{
+      display:flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  &__temp{
+    font-size:$xlarge-txt;
+    font-weight:$thin;
+
+  }
+
+  &__condition{
+    font-size: $med-txt;
+    padding-left: 1rem;
+
+  }
+
+  &__week{
+
+  }
+
+  &__temp::after {
+      @extend %degree;
+  }
+
+
+}
+
 
 .hour {
   &__temp::after {

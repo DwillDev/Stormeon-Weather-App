@@ -1,17 +1,21 @@
+body{
+  font-family:$inter;
+}
+
 h1 {
-  @extend %header;
 }
 
 h2 {
-  @extend %header;
-  font-size: 3.2rem;
+  font-size: $large-txt;
+  font-weight: $bold;
 }
 
 h3 {
-  @extend %header;
+  font-size:$med-txt;
+  font-weight: $bold;
 }
 
 p {
-  @extend %content;
-  font-size: 1.5rem;
+  font-size: $small-txt;
+  font-weight: $thin;
 }
