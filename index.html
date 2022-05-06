@@ -15,10 +15,13 @@
         <!-- <h1>Stormeon: A Pokemon Weather App</h1> -->
         <!-- <img src="/img/stormeon_logo_ball.svg" class="logo" /> -->
         <nav class="header__nav nav">
-          <i class="nav__icon--refresh wi wi-refresh"></i>
+          <i class="nav__icon nav__icon--refresh wi wi-refresh"></i>
           <div class="nav__divider">
-            <span class="nav__icon--geolocation iconify" data-icon="mdi:pokemon-go"></span>
-            <span class="nav__icon--menu iconify" data-icon="mdi:menu"></span>
+            <span
+              class="nav__icon nav__icon--geolocation iconify"
+              data-icon="mdi:pokemon-go"
+            ></span>
+            <span class="nav__icon nav__icon--menu iconify" data-icon="mdi:menu"></span>
           </div>
         </nav>
       </header>
@@ -26,7 +29,10 @@
       <main class="main">
         <nav class="main__nav sidebar hide">
           <section class="sidebar__search-bar">
-            <span class="sidebar__icon--search iconify" data-icon="mdi:magnify"></span>
+            <span
+              class="sidebar__icon sidebar__icon--search iconify"
+              data-icon="mdi:magnify"
+            ></span>
             <form class="sidebar__search-form search-form" autocomplete="off">
               <label for="search" class="search-form__label">Search:</label>
               <input
@@ -39,7 +45,7 @@
             </form>
           </section>
           <section class="sidebar__cities">
-            <span class="iconify sidebar__icon--add" data-icon="mdi:plus"></span>
+            <span class="iconify sidebar__icon sidebar__icon--add" data-icon="mdi:plus"></span>
             <!-- <div class="sidebar__city-box city-box">
               <p class="city-box__temp"></p>
               <img src="" alt="" class="city box__thumbnail" />
@@ -67,7 +73,7 @@
                 <p class="current-weather__high"></p>
               </div>
             </div>
-            <div class="current-weather__icon--today">
+            <div class="current-weather__icon current-weather__icon--today">
               <i class="wi wi-night-alt-storm-showers"></i>
             </div>
           </section>
@@ -80,53 +86,63 @@
           </section>
           <section class="current-weather__extra">
             <div class="current-weather__wind">
-              <i class="current-weather__icon wi wi-strong-wind"></i>
-              <p class="current-weather__text--wind"></p>
+              <i class="current-weather__icon current-weather__icon--wind wi wi-strong-wind"></i>
+              <p class="current-weather__text current-weather__text--wind"></p>
             </div>
             <div class="current-weather__rain">
-              <i class="current-weather__icon wi wi-raindrop"></i>
-              <p class="current-weather__text--rain"></p>
+              <i class="current-weather__icon current-weather__icon--rain wi wi-raindrop"></i>
+              <p class="current-weather__text current-weather__text--rain"></p>
             </div>
             <div class="current-weather__humidity">
-              <i class="current-weather__icon wi wi-humidity"></i>
-              <p class="current-weather__text--humidity"></p>
+              <i class="current-weather__icon current-weather__icon--humidity wi wi-humidity"></i>
+              <p class="current-weather__text current-weather__text--humidity"></p>
             </div>
             <div class="current-weather__uv">
               <span
-                class="current-weather__icon iconify"
+                class="current-weather__icon current-weather__icon--uv iconify"
                 data-icon="carbon:uv-index-alt"
               ></span>
-              <p class="current-weather__text--uv"></p>
+              <p class="current-weather__text current-weather__text--uv"></p>
             </div>
           </section>
-          <span class="main__icon--next iconify" data-icon="mdi:chevron-down"></span>
+          <span class="main__icon main__icon--next iconify" data-icon="mdi:chevron-down"></span>
         </div>
         <div class="main__future-weather future-weather">
           <section class="future-weather__hour">
-            <h3 class="future-weather__header">Hourly Forecast</h3>
-            <div class="future-weather__sun">
-              <div class="future-weather__sunrise">
-                <i class="future-weather__icon wi wi-sunrise"></i>
-                <p class="future-weather__rise-time"></p>
+            <h3 class="future-weather__header future-weather__header--hour">Hourly Forecast</h3>
+            <div class="future-weather__content future-weather__content--hour">
+              <div class="future-weather__sun">
+                <div class="future-weather__sunrise">
+                  <i class="future-weather__icon future-weather__icon--sunrise wi wi-sunrise"></i>
+                  <p class="future-weather__rise-time"></p>
+                </div>
+                <div class="future-weather__sunset">
+                  <i class="future-weather__icon future-weather__icon--sunset wi wi-sunset"></i>
+                  <p class="future-weather__set-time"></p>
+                </div>
               </div>
-              <div class="future-weather__sunset">
-                <i class="future-weather__icon wi wi-sunset"></i>
-                <p class="future-weather__set-time"></p>
-              </div>
+              <div class="future-weather__chart future-weather__chart--hour hour"></div>
             </div>
-            <div class="future-weather__chart--hour hour"></div>
           </section>
           <section class="future-weather__tomorrow">
-            <h3 class="future-weather__header">Tomorrow's Forecast</h3>
-            <div class="future-weather__icon--tomorrow"></div>
-            <div class="future-weather__text">
-              <p class="future-weather__temp"></p>
-              <p class="future-weather__condition"></p>
+            <h3 class="future-weather__header future-weather__header--tomorrow">
+              Tomorrow's Forecast
+            </h3>
+            <div class="future-weather__content future-weather__content--tomorrow">
+              <div class="future-weather__icon future-weather__icon--tomorrow">
+                <i class="wi wi-night-alt-storm-showers"></i>
+              </div>
+              <div class="future-weather__text">
+                <p class="future-weather__temp"></p>
+                <p class="future-weather__condition"></p>
+              </div>
             </div>
           </section>
           <section class="future-weather__week">
-            <h3 class="future-weather__header">7-Day Forecast</h3>
-            <div class="future-weather__chart--week week"></div>
+            <h3 class="future-weather__header future-weather__header--week">7-Day Forecast</h3>
+            <div class="future-weather__content future-weather__content--week">
+              <div class="future-weather__chart future-weather__chart--week week"></div>
+            </div>
           </section>
         </div>
       </main>

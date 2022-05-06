@@ -17,11 +17,11 @@ let speedSymbol;
 let unitToggle = () => {
   if (switchUnits.checked) {
     units = 'metric';
-    tempSymbol = '<i class="wi wi-celsius current-weather__unit"></i>';
+    tempSymbol = '<i class="wi wi-celsius .current-weather__icon current-weather__icon--unit"></i>';
     speedSymbol = 'm/s';
   } else {
     units = 'imperial';
-    tempSymbol = '<i class="wi wi-fahrenheit current-weather__unit"></i>';
+    tempSymbol = '<i class="wi wi-fahrenheit current-weather__icon current-weather__icon--unit"></i>';
     speedSymbol = 'mph';
   }
 };
@@ -190,7 +190,7 @@ let getWeather = () => {
         weeklyF += `
         <div class="week__day">
           <p class="week__weekday">${days[new Date(day.dt * 1000).getDay()]}</p>
-          <div class="week__icon"></div>
+          <div class="week__icon"><i class="wi wi-night-alt-storm-showers"></div>
           <div class="week__high-low">
           <p class="week__low">${Math.round(day.temp.min)}</p>
           <p class="week__high">${Math.round(day.temp.max)}</p>
