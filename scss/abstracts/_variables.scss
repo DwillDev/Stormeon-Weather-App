@@ -20,50 +20,50 @@ $small-i: 2.8rem;
 $xsmall-i:1.8rem;
 
 //Leafeon Color
-$lf-primary: hsla(42, 62%, 90%, 1);
-$lf-secondary: hsla(157, 52%, 40%, 1);
-$lf-tertiary:hsla(170, 33%, 29%, 1);
+$lf-primary: #f5ecd6;
+$lf-secondary: #319b72;
+$lf-tertiary:#32625a;
 $lf-gradient:linear-gradient(to bottom,$lf-secondary,$lf-tertiary,$lf-secondary, $lf-tertiary);
 
 //Sylveon Color
-$sv-primary: hsla(0, 0%, 100%, 1);
-$sv-secondary: hsla(347, 68%, 69%, 1);
-$sv-tertiary:hsla(356, 82%, 87%, 1);
+$sv-primary: #ffffff;
+$sv-secondary: #e67a91;
+$sv-tertiary:#f9c3c6;
 $sv-gradient:linear-gradient(to top,$sv-secondary,$sv-tertiary,$sv-secondary,$sv-tertiary);
 
 //Umbreon Color
-$ub-primary:hsla(50, 82%, 63%, 1);
-$ub-secondary:hsla(225, 29%, 23%, 1);
-$ub-tertiary:hsla(240, 11%, 43%, 1);
+$ub-primary:#eed453;
+$ub-secondary:#2a324c;
+$ub-tertiary:#62627a;
 $ub-gradient:linear-gradient(to top,$ub-secondary,$ub-tertiary,$ub-secondary,$ub-tertiary);
 
 //Flareon Color
-$fl-primary:hsla(49, 100%, 82%, 1);
-$fl-secondary:hsla(14, 91%, 63%, 1);
-$fl-tertiary:hsla(353, 64%, 55%, 1);
+$fl-primary:#ffeea3;
+$fl-secondary:#f7734b;
+$fl-tertiary:#d64354;
 $fl-gradient:linear-gradient(to bottom,$fl-secondary,$fl-tertiary,$fl-secondary,$fl-tertiary);
 
 //Jolteon Color
-$jt-primary:hsla(60, 100%, 77%, 1);
-$jt-secondary:hsla(43, 52%, 34%, 1);
-$jt-tertiary:hsla(45, 57%, 55%, 1);
+$jt-primary:#ffff8a;
+$jt-secondary:#846a2a;
+$jt-tertiary:#cead4b;
 $jt-gradient:linear-gradient(to top,$jt-secondary,$jt-tertiary,$jt-secondary,$jt-tertiary);
 
 //Vaporeon Color
-$vp-primary:hsla(194, 77%, 76%, 1);
-$vp-secondary:hsla(195, 80%, 32%, 1);
-$vp-tertiary:hsla(198, 72%, 22%, 1);
+$vp-primary:#93dbf1;
+$vp-secondary:#107293;
+$vp-tertiary:#104860;
 $vp-gradient:linear-gradient(to bottom,$vp-secondary,$vp-tertiary,$vp-secondary,$vp-tertiary);
 
 //Glaceon Color
-$gc-primary:hsla(185, 73%, 76%, 1);
-$gc-secondary:hsla(240, 18%, 27%, 1);
-$gc-tertiary:hsla(208, 68%, 60%, 1);
+$gc-primary:#95e7ee;
+$gc-secondary:#383851;
+$gc-tertiary:#549ede;
 $gc-gradient:linear-gradient(to top,$gc-secondary,$gc-tertiary,$gc-secondary,$gc-tertiary);
 
 //Espeon Color
-$ep-primary:hsla(300, 59%, 84%, 1);
-$ep-secondary:hsla(300, 25%, 39%, 1);
-$ep-tertiary:hsla(300, 28%, 59%, 1);
+$ep-primary:#eebeee;
+$ep-secondary:#7c4b7c;
+$ep-tertiary:#b479b4;
 $ep-gradient:linear-gradient(to top,$ep-secondary,$ep-tertiary,$ep-secondary,$ep-tertiary);
 
