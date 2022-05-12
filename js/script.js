@@ -8,7 +8,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
 //Switch between Imperial and Metric
 let switchUnits = document.querySelector('#toggle');
 let units;
@@ -21,7 +20,8 @@ let unitToggle = () => {
     speedSymbol = 'm/s';
   } else {
     units = 'imperial';
-    tempSymbol = '<i class="wi wi-fahrenheit current-weather__icon current-weather__icon--unit"></i>';
+    tempSymbol =
+      '<i class="wi wi-fahrenheit current-weather__icon current-weather__icon--unit"></i>';
     speedSymbol = 'mph';
   }
 };
@@ -134,8 +134,14 @@ let getWeather = () => {
       document.querySelector('.current-weather__temp').innerHTML = `${Math.round(
         weather.current.temp
       )}${tempSymbol}`;
-      document.querySelector('.current-weather__low').innerHTML = Math.round(weather.daily[0].temp.min);
-      document.querySelector('.current-weather__high').innerHTML = Math.round(weather.daily[0].temp.max);
+      document.querySelector('.current-weather__low').innerHTML = Math.round(
+        weather.daily[0].temp.min
+      );
+      document.querySelector('.current-weather__high').innerHTML = Math.round(
+        weather.daily[0].temp.max
+      );
+      document.querySelector('.current-weather__icon--today').innerHTML =
+      `<i class="wi wi-owm-${weather.current.weather[0].id}"></i>`;
 
       //Extra
       document.querySelector('.current-weather__text--wind').innerHTML = `${Math.round(
@@ -146,35 +152,41 @@ let getWeather = () => {
       } else {
         document.querySelector('.current-weather__text--rain').innerHTML = '0';
       }
-      document.querySelector('.current-weather__text--humidity').innerHTML = weather.current.humidity;
+      document.querySelector('.current-weather__text--humidity').innerHTML =
+        weather.current.humidity;
       document.querySelector('.current-weather__text--uv').innerHTML = weather.current.uvi;
 
       //Hourly
       let sunrise = new Date(weather.current.sunrise * 1000);
       let sunset = new Date(weather.current.sunset * 1000);
-      document.querySelector('.future-weather__rise-time').innerHTML = sunrise.toLocaleTimeString([], {
-        timeZone: weather.timezone,
-        hour: 'numeric',
-        minute: '2-digit',
-      });
-      document.querySelector('.future-weather__set-time').innerHTML = sunset.toLocaleTimeString([], {
-        timeZone: weather.timezone,
-        hour: 'numeric',
-        minute: '2-digit',
-      });
+      document.querySelector('.future-weather__rise-time').innerHTML = sunrise.toLocaleTimeString(
+        [],
+        {
+          timeZone: weather.timezone,
+          hour: 'numeric',
+          minute: '2-digit',
+        }
+      );
+      document.querySelector('.future-weather__set-time').innerHTML = sunset.toLocaleTimeString(
+        [],
+        {
+          timeZone: weather.timezone,
+          hour: 'numeric',
+          minute: '2-digit',
+        }
+      );
       let hourlyF = '';
-      weather.hourly.forEach((hour) => {
-        hourlyF += `
+      for(i=0;i<24;i++){
+        hourlyF +=`
         <div class="hour__time">
-          <p class = "hour__num">${new Date(hour.dt * 1000).toLocaleTimeString([], {
-            timeZone: weather.timezone,
-            hour: 'numeric',
-            hour12: 'true',
-          })}</p>
-          <div class="hour__icon"></div>
-          <p class="hour__temp">${Math.round(hour.temp)}</p>
-        </div>`;
-      });
+          <p class = "hour__num">${new Date(weather.hourly[i].dt * 1000).toLocaleTimeString([], {timeZone: weather.timezone,hour: 'numeric',hour12: 'true',})}</p>
+          <div class="hour__icon">
+            <i class="wi wi-owm-${weather.hourly[i]['weather'][0]['id']}"></i>
+          </div>
+          <p class="hour__temp">${Math.round(weather.hourly[i].temp)}</p>
+        </div>
+        `
+      }
       document.querySelector('.future-weather__chart--hour').innerHTML = hourlyF;
 
       //Tomorrow
@@ -183,17 +195,20 @@ let getWeather = () => {
       )}`;
       document.querySelector('.future-weather__condition').innerHTML =
         weather.daily[1]['weather'][0]['main'];
+      document.querySelector('.future-weather__icon--tomorrow').innerHTML =
+        `<i class="wi wi-owm-${weather.daily[1]['weather'][0]['id']}"></i>`;
 
       //7 Day
       let weeklyF = '';
       weather.daily.forEach((day) => {
         weeklyF += `
         <div class="week__day">
-          <p class="week__weekday">${days[new Date(day.dt * 1000).getDay()]}</p>
-          <div class="week__icon"><i class="wi wi-night-alt-storm-showers"></div>
+          <p class="week__dayname">${days[new Date(day.dt * 1000).getDay()]}</p>
+          <div class="week__icon"><i class="wi wi-owm-${day.weather[0].id}"></i></div>
           <div class="week__high-low">
           <p class="week__low">${Math.round(day.temp.min)}</p>
           <p class="week__high">${Math.round(day.temp.max)}</p>
+          </div>
         </div>`;
       });
       document.querySelector('.future-weather__chart--week').innerHTML = weeklyF;
