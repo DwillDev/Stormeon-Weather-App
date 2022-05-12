@@ -1,15 +1,18 @@
-.main__current-weather{
-  display:grid;
+.main__current-weather {
+  display: grid;
   align-items: center;
-  grid-template-rows: 1fr 40rem 1fr .5fr;
+  grid-template-rows: 1fr 40rem 1fr 0.5fr;
+  grid-template-columns: minmax(32rem, 39rem);
   grid-template-areas:
-  'simple'
-  'poke'
-  'extra'
-  'next';
+    'simple'
+    'poke'
+    'extra'
+    'next';
 }
 
-.main__future-weather{
-  display:grid;
-  gap:2rem;
+.main__future-weather {
+  display: grid;
+  grid-template-columns: minmax(32rem, 39rem);
+  gap: 2rem;
+
 }
