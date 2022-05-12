@@ -187,7 +187,7 @@ let getWeather = () => {
         </div>
         `
       }
-      document.querySelector('.future-weather__chart--hour').innerHTML = hourlyF;
+      document.querySelector('.future-weather__content--hour').innerHTML = hourlyF;
 
       //Tomorrow
       document.querySelector('.future-weather__temp').innerHTML = `${Math.round(
@@ -211,7 +211,7 @@ let getWeather = () => {
           </div>
         </div>`;
       });
-      document.querySelector('.future-weather__chart--week').innerHTML = weeklyF;
+      document.querySelector('.future-weather__content--week').innerHTML = weeklyF;
     });
 };
 

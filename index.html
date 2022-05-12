@@ -108,18 +108,17 @@
         <div class="main__future-weather future-weather">
           <section class="future-weather__hour">
             <h3 class="future-weather__header future-weather__header--hour">Hourly Forecast</h3>
-            <div class="future-weather__content future-weather__content--hour">
-              <div class="future-weather__sun">
-                <div class="future-weather__sunrise">
-                  <i class="future-weather__icon future-weather__icon--sunrise wi wi-sunrise"></i>
-                  <p class="future-weather__rise-time"></p>
-                </div>
-                <div class="future-weather__sunset">
-                  <i class="future-weather__icon future-weather__icon--sunset wi wi-sunset"></i>
-                  <p class="future-weather__set-time"></p>
-                </div>
+            <div class="future-weather__content future-weather__content--sun">
+              <div class="future-weather__sunrise">
+                <i class="future-weather__icon future-weather__icon--sunrise wi wi-sunrise"></i>
+                <p class="future-weather__rise-time"></p>
               </div>
-              <div class="future-weather__chart future-weather__chart--hour hour"></div>
+              <div class="future-weather__sunset">
+                <i class="future-weather__icon future-weather__icon--sunset wi wi-sunset"></i>
+                <p class="future-weather__set-time"></p>
+              </div>
+            </div>
+            <div class="future-weather__content future-weather__content--hour hour">
             </div>
           </section>
           <section class="future-weather__tomorrow">
@@ -136,8 +135,7 @@
           </section>
           <section class="future-weather__week">
             <h3 class="future-weather__header future-weather__header--week">7-Day Forecast</h3>
-            <div class="future-weather__content future-weather__content--week">
-              <div class="future-weather__chart future-weather__chart--week week"></div>
+            <div class="future-weather__content future-weather__content--week week">
             </div>
           </section>
         </div>

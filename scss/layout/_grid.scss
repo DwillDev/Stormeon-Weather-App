@@ -1,7 +1,8 @@
 .main__current-weather {
+  height:95vh;
   display: grid;
   align-items: center;
-  grid-template-rows: 1fr 40rem 1fr 0.5fr;
+  grid-template-rows: 1fr 40rem .6fr .6fr;
   grid-template-columns: minmax(32rem, 39rem);
   grid-template-areas:
     'simple'
@@ -11,8 +12,9 @@
 }
 
 .main__future-weather {
+  height:95vh;
   display: grid;
   grid-template-columns: minmax(32rem, 39rem);
+  grid-template-rows: repeat(3, minmax(24rem,30vh));
   gap: 2rem;
-
 }
