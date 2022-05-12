@@ -1,40 +1,42 @@
-.main__future-weather{
-  height:100vh;
+.main__future-weather {
+  height: 100vh;
 
-  & > *{
-    background-color:black;
-    border-radius: 1.5rem;
+  & > * {
+    background: rgba($lf-primary, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba($lf-primary, 0.15);
     padding:2rem;
-
   }
 }
 
-.future-weather{
-  &__header{
+.future-weather {
+  &__header {
     text-align: center;
+    margin-bottom:1.5rem;
   }
 
-  &__hour{
-
+  &__hour {
   }
 
-  &__sun{
-    display:flex;
+  &__sun {
+    display: flex;
     justify-content: space-between;
   }
 
-  &__sunrise , &__sunset{
-    display:flex;
+  &__sunrise,
+  &__sunset {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap:.3rem;
+    gap: 0.3rem;
   }
 
-  &__content{
-    
-
-    &--tomorrow{
-      display:flex;
+  &__content {
+    &--tomorrow {
+      display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: center;
@@ -42,38 +44,54 @@
     }
   }
 
-  &__temp{
-    font-size:$xlarge-txt;
-    font-weight:$thin;
-
+  &__temp {
+    font-size: $xlarge-txt;
+    font-weight: $thin;
   }
 
-  &__condition{
+  &__condition {
     font-size: $med-txt;
     padding-left: 1rem;
-
-  }
-
-  &__week{
-
   }
 
   &__temp::after {
-      @extend %degree;
+    @extend %degree;
   }
-
-
 }
 
-
 .hour {
+  // display:grid;
+  grid-template-columns: repeat(24, 10rem);
+  overflow:scroll;
   &__temp::after {
     @extend %degree;
   }
 }
 
 .week {
-  &__low::after, &__high::after {
-    @extend %degree;
+  display:grid;
+  grid-template-columns: repeat(8, 10rem);
+  overflow:scroll;
+
+  &__high-low {
+    display: flex;
+  }
+
+  &__day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__low::before {
+    content: '\1F861 ';
+  }
+
+  &__low::after {
+    @extend .current-weather__low::after;
+  }
+
+  &__high::after {
+    content: '\1F863';
   }
 }
