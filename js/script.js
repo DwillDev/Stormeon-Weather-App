@@ -140,8 +140,9 @@ let getWeather = () => {
       document.querySelector('.current-weather__high').innerHTML = Math.round(
         weather.daily[0].temp.max
       );
-      document.querySelector('.current-weather__icon--today').innerHTML =
-      `<i class="wi wi-owm-${weather.current.weather[0].id}"></i>`;
+      document.querySelector(
+        '.current-weather__icon--today'
+      ).innerHTML = `<i class="wi wi-owm-${weather.current.weather[0].id}"></i>`;
 
       //Extra
       document.querySelector('.current-weather__text--wind').innerHTML = `${Math.round(
@@ -176,16 +177,20 @@ let getWeather = () => {
         }
       );
       let hourlyF = '';
-      for(i=0;i<24;i++){
-        hourlyF +=`
+      for (i = 0; i < 24; i++) {
+        hourlyF += `
         <div class="hour__time">
-          <p class = "hour__num">${new Date(weather.hourly[i].dt * 1000).toLocaleTimeString([], {timeZone: weather.timezone,hour: 'numeric',hour12: 'true',})}</p>
+          <p class = "hour__num">${new Date(weather.hourly[i].dt * 1000).toLocaleTimeString([], {
+            timeZone: weather.timezone,
+            hour: 'numeric',
+            hour12: 'true',
+          })}</p>
           <div class="hour__icon">
             <i class="wi wi-owm-${weather.hourly[i]['weather'][0]['id']}"></i>
           </div>
           <p class="hour__temp">${Math.round(weather.hourly[i].temp)}</p>
         </div>
-        `
+        `;
       }
       document.querySelector('.future-weather__content--hour').innerHTML = hourlyF;
 
@@ -195,8 +200,9 @@ let getWeather = () => {
       )}`;
       document.querySelector('.future-weather__condition').innerHTML =
         weather.daily[1]['weather'][0]['main'];
-      document.querySelector('.future-weather__icon--tomorrow').innerHTML =
-        `<i class="wi wi-owm-${weather.daily[1]['weather'][0]['id']}"></i>`;
+      document.querySelector(
+        '.future-weather__icon--tomorrow'
+      ).innerHTML = `<i class="wi wi-owm-${weather.daily[1]['weather'][0]['id']}"></i>`;
 
       //7 Day
       let weeklyF = '';
@@ -212,6 +218,68 @@ let getWeather = () => {
         </div>`;
       });
       document.querySelector('.future-weather__content--week').innerHTML = weeklyF;
+
+      //Dynamic theme switching
+      let prevClass = document.querySelector('body').classList[0];
+      let eon;
+
+      switch (weather.current.weather[0].main) {
+        case 'Thunderstorm':
+          document.querySelector('body').classList.replace(prevClass, 'jolteon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Electric_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/jolteon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'Jolteon';
+          break;
+        case 'Rain':
+        case 'Drizzle':
+        case 'Mist':
+          document.querySelector('body').classList.replace(prevClass, 'vaporeon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Water_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/vaporeon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'Vaporeon';
+          break;
+        case 'Snow':
+          document.querySelector('body').classList.replace(prevClass, 'glaceon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Ice_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/glaceon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'Glaceon';
+          break;
+        case 'Clear':
+          document.querySelector('body').classList.replace(prevClass, 'leafeon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Grass_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/leafeon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'Leafeon';
+          break;
+        case 'Clouds':
+        case 'Fog':
+        case 'Haze':
+          document.querySelector('body').classList.replace(prevClass, 'umbreon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Dark_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/umbreon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'Umbreon';
+          break;
+        case "Smoke":
+        case "Ash":
+          document.querySelector('body').classList.replace(prevClass, 'flareon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Fire_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/flareon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'Flareon';
+          break;
+        default:
+          document.querySelector('body').classList.replace(prevClass, 'espeon');
+          document.querySelector('.pokemon__type').src = '/img/Pokémon_Psychic_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = '/img/espeon-3d.png';
+          prevClass = document.querySelector('body').classList[0];
+          eon = 'espeon';
+          break;
+      }
+      document.querySelector('.pokemon__text').innerHTML = `${weather.current.weather[0].main} - Today's weather is perfect for your ${eon}!`;
     });
 };
 
