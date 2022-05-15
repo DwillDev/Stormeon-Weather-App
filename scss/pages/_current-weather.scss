@@ -13,7 +13,7 @@
   }
 
   &__low::before {
-    content: '🡣  ';
+    content: '\2193  ';
     @extend %wp;
   }
 
@@ -23,7 +23,7 @@
   }
 
   &__high::after {
-    content: ' 🡡';
+    content: ' \2191';
     @extend %wp;
   }
 

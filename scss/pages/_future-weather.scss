@@ -48,7 +48,7 @@
   }
 
   &__low::before {
-    content: '🡣 ';
+    content: '\2193 ';
   }
 
   &__low::after {
@@ -56,7 +56,7 @@
   }
 
   &__high::after {
-    content: '🡣';
+    content: '\2191';
   }
 
   &::-webkit-scrollbar {

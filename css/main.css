@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 .future-weather__temp::after, .hour__temp::after {
   white-space: pre-wrap;
@@ -527,7 +526,7 @@ header {
 }
 
 .current-weather__low::before {
-  content: '🡣  ';
+  content: '\2193  ';
 }
 
 .current-weather__low::after, .week__low::after {
@@ -535,7 +534,7 @@ header {
 }
 
 .current-weather__high::after {
-  content: ' 🡡';
+  content: ' \2191';
 }
 
 .current-weather__city, .current-weather__date, .current-weather__time {
@@ -603,11 +602,11 @@ header {
 }
 
 .week__low::before {
-  content: '🡣 ';
+  content: '\2193 ';
 }
 
 .week__high::after {
-  content: '🡣';
+  content: '\2191';
 }
 
 .week::-webkit-scrollbar {
