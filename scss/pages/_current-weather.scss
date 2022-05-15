@@ -1,18 +1,11 @@
 .current-weather {
   &__simple {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     text-align: left;
-    grid-area: simple;
-  }
-  &__temp {
-    font-size: $xlarge-txt;
-    font-weight: $reg;
   }
 
-  &__high-low {
-    display: flex;
+  &__temp {
+    font-size:$xlarge-txt;
+    font-weight: $reg;
   }
 
   &__high-low > * {
@@ -44,26 +37,15 @@
     font-size: $small-txt;
   }
 
-  &__pokemon {
-    grid-area: poke;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   &__extra {
-    display: flex;
-    justify-content: space-between;
     text-align: center;
     line-height: 5rem;
-    grid-area: extra;
   }
 }
 
 .pokemon {
   &__type {
-    width: 3rem;
+    width: clamp(3rem,2vw,4rem);
     margin-bottom: 1rem;
   }
 
@@ -77,6 +59,6 @@
   }
 
   &__image {
-    width: 25rem;
+    width: clamp(20rem,65vw,25rem);
   }
 }

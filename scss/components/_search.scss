@@ -1,0 +1,21 @@
+.search-form{
+    display:flex;
+    align-items: center;
+
+    
+    &__input{
+        width:75vw;
+        height:5rem;
+        padding-left:2rem;
+        border-radius: 1rem;
+        border:.3rem solid;
+        background: transparent url('https://api.iconify.design/mdi/magnify.svg?color=white&height=27') no-repeat 97% center;
+        font-family: $inter;
+        color:$nav-txt;
+
+        &::placeholder{
+            color:$nav-txt;
+        }
+    }  
+
+}

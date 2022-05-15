@@ -1,0 +1,44 @@
+.unit-toggle {
+  display: flex;
+  align-items: center;
+  gap:1rem;
+  color:$nav-txt;
+
+  &__unit{
+    font-weight:$reg;
+  }
+
+  &__switch {
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 3.4rem;
+  }
+
+  &__checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  &__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border:.3rem solid;
+    border-radius:3.4rem;
+  }
+
+  &__slider::before {
+    position: absolute;
+    content: "";
+    height: 2rem;
+    width: 2rem;
+    left: .4rem;
+    bottom: .4rem;
+    border-radius:50%;
+    background-color:$nav-txt;
+  }
+}
