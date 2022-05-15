@@ -22,14 +22,6 @@
 }
 
 //Element visibility
-.hide {
+.hide, .nav-hide {
   display: none;
-}
-
-//Media Query
-@media (min-width: 600px) {
-  .wrapper{
-    overflow:hidden;
-
-  }
 }
