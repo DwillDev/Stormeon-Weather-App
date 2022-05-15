@@ -1,0 +1,27 @@
+.espeon {
+  @include main-colors($ep-primary, $ep-gradient);
+}
+
+.flareon {
+  @include main-colors($fl-primary, $fl-gradient);
+}
+
+.glaceon {
+  @include main-colors($gc-primary, $gc-gradient);
+}
+
+.jolteon {
+  @include main-colors($jt-primary, $jt-gradient);
+}
+
+.leafeon {
+  @include main-colors($lf-primary, $lf-gradient);
+}
+
+.umbreon {
+  @include main-colors($ub-primary, $ub-gradient);
+}
+
+.vaporeon {
+  @include main-colors($vp-primary, $vp-gradient);
+}
