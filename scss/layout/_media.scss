@@ -4,30 +4,29 @@
 @media only screen and (min-width: 730px) {
   //Grid Structure
   .wrapper {
-    // & > *{
-    //   border:1px solid black;
-    // }
+    max-height:100vh;
   }
   .main {
-    width: 75%;
-    height: 95vh;
-    grid-template-rows: minmax(20vw, 30%) minmax(30rem, 70%);
+    width: 75vw;
+    height: 90vh;
+    grid-template-rows: minmax(25rem, 30%) minmax(30rem, 70%);
     gap: 2rem;
 
-    // & > * {
-    //   border:1px solid black;
-    // }
+    & > * {
+      width: inherit;
+    }
 
     &__current-weather {
-      & > * {
-        border: 1px solid black;
-      }
-      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      grid-template-columns: 40% 20%;
       grid-template-areas: 'simple . poke';
     }
 
     &__future-weather {
-      visibility: hidden;
+      grid-template-columns: repeat(3, calc(33% - 1.2rem));
+      grid-template-rows: minmax(25rem,50%) minmax(25rem,45%);
+      grid-template-areas: 'tmrw wk wk' 'hr hr .';
+      gap: 2rem;
     }
   }
 
@@ -78,33 +77,46 @@
     background: rgba(white, 0.1);
     border: 2px solid rgba(white, 0.15);
     border-radius: 1.6rem;
-    padding: 2rem;
-
-    &__simple {
-    }
+    padding:2rem;
 
     &__extra {
-      // height:25rem;
-      // flex-direction: column;
-      // flex-wrap: wrap;
+      @extend .current-weather;
+      position:absolute;
+      top:clamp(54rem,61.7vh,55rem);
+      left:67%;
+      width:24.5vw;
+      height:28vh;
+      display:grid;
+      row-gap:2rem;
+      grid-template-columns: repeat(2,50%);
     }
   }
 
   .pokemon {
+    padding-right: 5rem;
     justify-content: space-between;
     &__type {
       position: absolute;
       top: 1rem;
       right: 1rem;
     }
-    &__advice {
-    }
+
     &__image {
       width: clamp(15rem, 10vw, 17rem);
     }
   }
+}
 
-  //Future Weather
-  .future-weather {
+.future-weather{
+  position: relative;
+
+  &__temp{
+    font-size:clamp(4rem, 3vw, 7rem);
+  }
+
+  &__icon{
+    &--tomorrow{
+      font-size:clamp(5rem,10vw,10rem)
+    }
   }
 }
