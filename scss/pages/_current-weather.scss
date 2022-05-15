@@ -13,7 +13,7 @@
   }
 
   &__low::before {
-    content: '\1F861  ';
+    content: '🡣  ';
     @extend %wp;
   }
 
@@ -23,7 +23,7 @@
   }
 
   &__high::after {
-    content: ' \1F863';
+    content: ' 🡡';
     @extend %wp;
   }
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 .future-weather__temp::after, .hour__temp::after {
   white-space: pre-wrap;
@@ -526,7 +527,7 @@ header {
 }
 
 .current-weather__low::before {
-  content: '\1F861  ';
+  content: '🡣  ';
 }
 
 .current-weather__low::after, .week__low::after {
@@ -534,7 +535,7 @@ header {
 }
 
 .current-weather__high::after {
-  content: ' \1F863';
+  content: ' 🡡';
 }
 
 .current-weather__city, .current-weather__date, .current-weather__time {
@@ -602,11 +603,11 @@ header {
 }
 
 .week__low::before {
-  content: '\1F861 ';
+  content: '🡣 ';
 }
 
 .week__high::after {
-  content: '\1F863';
+  content: '🡣';
 }
 
 .week::-webkit-scrollbar {
@@ -636,44 +637,44 @@ header {
 
 .espeon {
   color: #eebeee;
-  background: -webkit-gradient(linear, left bottom, left top, from(#7c4b7c), color-stop(#b479b4), color-stop(#7c4b7c), to(#b479b4)) no-repeat fixed;
-  background: linear-gradient(to top, #7c4b7c, #b479b4, #7c4b7c, #b479b4) no-repeat fixed;
+  background: -webkit-gradient(linear, left bottom, left top, from(#7c4b7c), color-stop(#b479b4), color-stop(#7c4b7c), to(#b479b4)) no-repeat scroll;
+  background: linear-gradient(to top, #7c4b7c, #b479b4, #7c4b7c, #b479b4) no-repeat scroll;
 }
 
 .flareon {
   color: #ffeea3;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f7734b), color-stop(#d64354), color-stop(#f7734b), to(#d64354)) no-repeat fixed;
-  background: linear-gradient(to bottom, #f7734b, #d64354, #f7734b, #d64354) no-repeat fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7734b), color-stop(#d64354), color-stop(#f7734b), to(#d64354)) no-repeat scroll;
+  background: linear-gradient(to bottom, #f7734b, #d64354, #f7734b, #d64354) no-repeat scroll;
 }
 
 .glaceon {
   color: #95e7ee;
-  background: -webkit-gradient(linear, left bottom, left top, from(#383851), color-stop(#549ede), color-stop(#383851), to(#549ede)) no-repeat fixed;
-  background: linear-gradient(to top, #383851, #549ede, #383851, #549ede) no-repeat fixed;
+  background: -webkit-gradient(linear, left bottom, left top, from(#383851), color-stop(#549ede), color-stop(#383851), to(#549ede)) no-repeat scroll;
+  background: linear-gradient(to top, #383851, #549ede, #383851, #549ede) no-repeat scroll;
 }
 
 .jolteon {
   color: #ffff8a;
-  background: -webkit-gradient(linear, left bottom, left top, from(#846a2a), color-stop(#cead4b), color-stop(#846a2a), to(#cead4b)) no-repeat fixed;
-  background: linear-gradient(to top, #846a2a, #cead4b, #846a2a, #cead4b) no-repeat fixed;
+  background: -webkit-gradient(linear, left bottom, left top, from(#846a2a), color-stop(#cead4b), color-stop(#846a2a), to(#cead4b)) no-repeat scroll;
+  background: linear-gradient(to top, #846a2a, #cead4b, #846a2a, #cead4b) no-repeat scroll;
 }
 
 .leafeon {
   color: #f5ecd6;
-  background: -webkit-gradient(linear, left top, left bottom, from(#319b72), color-stop(#32625a), color-stop(#319b72), to(#32625a)) no-repeat fixed;
-  background: linear-gradient(to bottom, #319b72, #32625a, #319b72, #32625a) no-repeat fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#319b72), color-stop(#32625a), color-stop(#319b72), to(#32625a)) no-repeat scroll;
+  background: linear-gradient(to bottom, #319b72, #32625a, #319b72, #32625a) no-repeat scroll;
 }
 
 .umbreon {
   color: #eed453;
-  background: -webkit-gradient(linear, left bottom, left top, from(#2a324c), color-stop(#62627a), color-stop(#2a324c), to(#62627a)) no-repeat fixed;
-  background: linear-gradient(to top, #2a324c, #62627a, #2a324c, #62627a) no-repeat fixed;
+  background: -webkit-gradient(linear, left bottom, left top, from(#2a324c), color-stop(#62627a), color-stop(#2a324c), to(#62627a)) no-repeat scroll;
+  background: linear-gradient(to top, #2a324c, #62627a, #2a324c, #62627a) no-repeat scroll;
 }
 
 .vaporeon {
   color: #93dbf1;
-  background: -webkit-gradient(linear, left top, left bottom, from(#107293), color-stop(#104860), color-stop(#107293), to(#104860)) no-repeat fixed;
-  background: linear-gradient(to bottom, #107293, #104860, #107293, #104860) no-repeat fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#107293), color-stop(#104860), color-stop(#107293), to(#104860)) no-repeat scroll;
+  background: linear-gradient(to bottom, #107293, #104860, #107293, #104860) no-repeat scroll;
 }
 
 @media only screen and (min-width: 730px) {
