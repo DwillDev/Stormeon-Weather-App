@@ -39,7 +39,7 @@ let hideSplash = () => {
 let reset = () => {
   document.querySelector('.headnav__icon--menu').style.color = 'unset';
   document.querySelector('body').style.overflow = 'unset';
-  document.querySelector('.dropnav').classList.toggle('hide');
+  document.querySelector('.dropnav').classList.toggle('nav-hide');
   document.querySelector('.search-form__input').value = '';
 };
 
