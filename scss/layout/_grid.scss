@@ -9,11 +9,11 @@
 .main {
   display: grid;
   grid-template-columns: inherit;
-  grid-template-rows: repeat(2, minmax(75rem,95vh));
+  grid-template-rows: repeat(2, minmax(75rem, 95vh));
 
   & > * {
     display: grid;
-    height:95vh;
+    height: 95vh;
     grid-template-columns: inherit;
   }
 
@@ -39,8 +39,6 @@
   &__pokemon {
     grid-area: poke;
   }
-
-
 }
 
 .main__icon--next {

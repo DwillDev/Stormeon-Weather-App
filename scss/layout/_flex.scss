@@ -27,8 +27,6 @@
     justify-content: center;
     align-items: center;
   }
-
-
 }
 
 .future-weather {
@@ -66,33 +64,30 @@
     }
   }
 
-  .week{
-      &__day{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 1rem;
-        align-items: center;
-      }
+  .week {
+    &__day {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
 
-      &__high-low {
-        display: flex;
-        flex-direction: row;
-      }
-
+    &__high-low {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
-  .hour{
+  .hour {
     display: flex;
 
     &__time {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
-
 }
 
 .extra {

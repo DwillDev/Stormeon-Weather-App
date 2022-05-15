@@ -59,14 +59,13 @@
     content: '\1F863';
   }
 
-  &::-webkit-scrollbar{
-    display:none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
 .hour {
   text-align: center;
-  
 
   &__time {
     min-width: 10rem;
@@ -76,8 +75,8 @@
     @extend %degree;
   }
 
-  &::-webkit-scrollbar{
-    display:none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -88,5 +87,5 @@
 
 //Extra
 .pc-extra {
-display:none;
+  display: none;
 }

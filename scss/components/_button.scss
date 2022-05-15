@@ -1,11 +1,11 @@
 .unit-toggle {
   display: flex;
   align-items: center;
-  gap:1rem;
-  color:$nav-txt;
+  gap: 1rem;
+  color: $nav-txt;
 
-  &__unit{
-    font-weight:$reg;
+  &__unit {
+    font-weight: $reg;
   }
 
   &__switch {
@@ -27,23 +27,23 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border:.3rem solid;
-    border-radius:3.4rem;
+    border: 0.3rem solid;
+    border-radius: 3.4rem;
   }
 
   &__slider::before {
     position: absolute;
-    content: "";
+    content: '';
     height: 2rem;
     width: 2rem;
-    left: .4rem;
-    bottom: .4rem;
-    border-radius:50%;
-    background-color:$nav-txt;
-    transition: .4s;
+    left: 0.4rem;
+    bottom: 0.4rem;
+    border-radius: 50%;
+    background-color: $nav-txt;
+    transition: 0.4s;
   }
-  
-    &__checkbox:checked + &__slider:before {
-      transform: translateX(26px);
-    }
+
+  &__checkbox:checked + &__slider:before {
+    transform: translateX(26px);
+  }
 }

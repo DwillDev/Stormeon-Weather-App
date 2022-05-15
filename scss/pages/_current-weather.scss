@@ -4,7 +4,7 @@
   }
 
   &__temp {
-    font-size:$xlarge-txt;
+    font-size: $xlarge-txt;
     font-weight: $reg;
   }
 
@@ -36,12 +36,11 @@
     @extend .current-weather__city;
     font-size: $small-txt;
   }
-
 }
 
 .pokemon {
   &__type {
-    width: clamp(3rem,2vw,4rem);
+    width: clamp(3rem, 2vw, 4rem);
     margin-bottom: 1rem;
   }
 
@@ -55,6 +54,6 @@
   }
 
   &__image {
-    width: clamp(20rem,65vw,25rem);
+    width: clamp(20rem, 65vw, 25rem);
   }
 }

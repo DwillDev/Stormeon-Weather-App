@@ -15,13 +15,13 @@
 
     &__current-weather {
       align-items: center;
-      height:clamp(25rem,27vh,40rem);
+      height: clamp(25rem, 27vh, 40rem);
       grid-template-columns: 40% 20%;
       grid-template-areas: 'simple . poke';
     }
 
     &__future-weather {
-      height:50vh;
+      height: 50vh;
       grid-template-columns: repeat(3, calc(33% - 1.2rem));
       grid-template-rows: minmax(25rem, 50%) minmax(25rem, 45%);
       grid-template-areas: 'tmrw wk wk' 'hr hr extra';
@@ -67,8 +67,8 @@
     display: none;
   }
 
-  .headnav__icon:not(.headnav__icon--refresh){
-    z-index:10;
+  .headnav__icon:not(.headnav__icon--refresh) {
+    z-index: 10;
   }
 
   //Current Weather
@@ -114,31 +114,30 @@
   }
 
   //Nav
-    .dropnav {
-      width: 20%;
-      height: 100%;
-      z-index: 3;
-    }
+  .dropnav {
+    width: 20%;
+    height: 100%;
+    z-index: 3;
+  }
 
-    .nav-hide{
-      display:block;
-    }
+  .nav-hide {
+    display: block;
+  }
 
   //Search bar
-  .search-form{
-    &__input{
-      width:clamp(12rem,18vw,34rem);
+  .search-form {
+    &__input {
+      width: clamp(12rem, 18vw, 34rem);
 
-      &::placeholder{
-        font-size:clamp(1rem,.7vw,5rem);
+      &::placeholder {
+        font-size: clamp(1rem, 0.7vw, 5rem);
       }
-
     }
   }
- 
-  .splash{
-    z-index:2;
-    background-position:30%;
+
+  .splash {
+    z-index: 2;
+    background-position: 30%;
     background-size: 50vw;
   }
 
@@ -155,16 +154,14 @@
   }
 }
 
-@media only screen and (max-height:860px) {
-  html{
+@media only screen and (max-height: 860px) {
+  html {
     font-size: 55%;
+  }
 }
 
-}
-
-@media only screen and (max-height:750px) {
-  html{
+@media only screen and (max-height: 750px) {
+  html {
     font-size: 40%;
-}
-
+  }
 }
