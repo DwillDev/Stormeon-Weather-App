@@ -1,10 +1,7 @@
-@media only screen and (min-width: 500px) {
-}
-
 @media only screen and (min-width: 730px) {
   //Grid Structure
   .wrapper {
-    max-height:100vh;
+    max-height: 100vh;
   }
   .main {
     width: 75vw;
@@ -18,14 +15,16 @@
 
     &__current-weather {
       align-items: center;
+      height:clamp(25rem,27vh,40rem);
       grid-template-columns: 40% 20%;
       grid-template-areas: 'simple . poke';
     }
 
     &__future-weather {
+      height:50vh;
       grid-template-columns: repeat(3, calc(33% - 1.2rem));
-      grid-template-rows: minmax(25rem,50%) minmax(25rem,45%);
-      grid-template-areas: 'tmrw wk wk' 'hr hr .';
+      grid-template-rows: minmax(25rem, 50%) minmax(25rem, 45%);
+      grid-template-areas: 'tmrw wk wk' 'hr hr extra';
       gap: 2rem;
     }
   }
@@ -38,10 +37,6 @@
 
     &__pokemon {
       grid-area: poke;
-    }
-
-    &__extra {
-      grid-area: extra;
     }
   }
 
@@ -61,11 +56,19 @@
     &__week {
       grid-area: wk;
     }
+
+    .extra {
+      grid-area: extra;
+    }
   }
 
   //Icons
   .main__icon--next {
     display: none;
+  }
+
+  .headnav__icon:not(.headnav__icon--refresh){
+    z-index:10;
   }
 
   //Current Weather
@@ -77,19 +80,7 @@
     background: rgba(white, 0.1);
     border: 2px solid rgba(white, 0.15);
     border-radius: 1.6rem;
-    padding:2rem;
-
-    &__extra {
-      @extend .current-weather;
-      position:absolute;
-      top:clamp(54rem,61.7vh,55rem);
-      left:67%;
-      width:24.5vw;
-      height:28vh;
-      display:grid;
-      row-gap:2rem;
-      grid-template-columns: repeat(2,50%);
-    }
+    padding: 2rem;
   }
 
   .pokemon {
@@ -105,18 +96,75 @@
       width: clamp(15rem, 10vw, 17rem);
     }
   }
-}
 
-.future-weather{
-  position: relative;
+  //Future weather
 
-  &__temp{
-    font-size:clamp(4rem, 3vw, 7rem);
-  }
+  .future-weather {
+    position: relative;
 
-  &__icon{
-    &--tomorrow{
-      font-size:clamp(5rem,10vw,10rem)
+    &__temp {
+      font-size: clamp(4rem, 3vw, 7rem);
+    }
+
+    &__icon {
+      &--tomorrow {
+        font-size: clamp(5rem, 10vw, 10rem);
+      }
     }
   }
+
+  //Nav
+    .dropnav {
+      width: 20%;
+      height: 100%;
+      z-index: 3;
+    }
+
+    .nav-hide{
+      display:block;
+    }
+
+  //Search bar
+  .search-form{
+    &__input{
+      width:clamp(12rem,18vw,34rem);
+
+      &::placeholder{
+        font-size:clamp(1rem,.7vw,5rem);
+      }
+
+    }
+  }
+ 
+  .splash{
+    z-index:2;
+    background-position:30%;
+    background-size: 50vw;
+  }
+
+  //Extra
+  .pc-extra {
+    @extend .current-weather;
+    display: grid;
+    row-gap: 2rem;
+    grid-template-columns: repeat(2, 50%);
+  }
+
+  .mobile-extra {
+    display: none;
+  }
+}
+
+@media only screen and (max-height:860px) {
+  html{
+    font-size: 55%;
+}
+
+}
+
+@media only screen and (max-height:750px) {
+  html{
+    font-size: 40%;
+}
+
 }

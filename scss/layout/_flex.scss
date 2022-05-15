@@ -28,10 +28,7 @@
     align-items: center;
   }
 
-  &__extra {
-    display: flex;
-    justify-content: space-between;
-  }
+
 }
 
 .future-weather {
@@ -95,5 +92,10 @@
       }
 
   }
+
 }
 
+.extra {
+  display: flex;
+  justify-content: space-between;
+}

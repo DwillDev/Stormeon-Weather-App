@@ -9,10 +9,11 @@
 .main {
   display: grid;
   grid-template-columns: inherit;
-  grid-template-rows: repeat(2, 95vh);
+  grid-template-rows: repeat(2, minmax(75rem,95vh));
 
   & > * {
     display: grid;
+    height:95vh;
     grid-template-columns: inherit;
   }
 
@@ -39,9 +40,7 @@
     grid-area: poke;
   }
 
-  &__extra {
-    grid-area: extra;
-  }
+
 }
 
 .main__icon--next {
@@ -59,5 +58,9 @@
 
   &__week {
     grid-area: wk;
+  }
+
+  .extra {
+    grid-area: extra;
   }
 }

@@ -4,7 +4,7 @@
 
     
     &__input{
-        width:75vw;
+        width:clamp(20rem,75vw,38rem);
         height:5rem;
         padding-left:2rem;
         border-radius: 1rem;
