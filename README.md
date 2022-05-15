@@ -26,7 +26,7 @@ Stormeon is a weather app inspired by the Eeveelutions in the Pokemon franchise.
 
 ## Lessons Learned
 
-This is my first project where I had to come up with the design myself. Using figma, I wireframed the site before getting into the coding portion of it. I quickly learned that web design can be a more arduous task than writing the actual code while working on Stormeon. I also learned about making promises and how to use multiple APIs in a website.
+This is my first project where I had to come up with the design myself. Using Figma, I wireframed the site before getting into the coding portion of it. I quickly learned that web design can be a more arduous task than writing the actual code while working on Stormeon. I also learned about making promises and how to use multiple APIs in a website.
 
 In addition, I learned the basics of BEM and SCSS in order to build and organize Stormeon.
 
