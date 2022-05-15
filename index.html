@@ -10,46 +10,48 @@
     <link rel="stylesheet" href="css/weather-icons.min.css" />
   </head>
   <body class="eon">
+    <div class="splash"></div>
     <div class="wrapper">
-      <header class="header">
-        <!-- <h1>Stormeon: A Pokemon Weather App</h1> -->
-        <!-- <img src="/img/stormeon_logo_ball.svg" class="logo" /> -->
+      <header>
         <nav class="header__nav nav">
-          <i class="nav__icon nav__icon--refresh wi wi-refresh"></i>
-          <div class="nav__divider">
-            <span
-              class="nav__icon nav__icon--geolocation iconify"
-              data-icon="mdi:pokemon-go"
-            ></span>
-            <span class="nav__icon nav__icon--menu iconify" data-icon="mdi:menu"></span>
-          </div>
+          <section class="nav__headnav headnav">
+            <i class="headnav__icon nav__icon--refresh wi wi-refresh"></i>
+            <div class="headnav__divider">
+              <span
+                class="headnav__icon nav__icon--geolocation iconify"
+                data-icon="mdi:pokemon-go"
+              ></span>
+              <span class="headnav__icon headnav__icon--menu iconify" data-icon="mdi:menu"></span>
+            </div>
+          </section>
+          <section class="nav__dropnav dropnav hide">
+            <img src="/img/stormeon_logo_ball__white.svg" class="dropnav__logo" />
+            <div class="dropnav__search-bar">
+              <form class="dropnav__search-form search-form" autocomplete="off">
+                <label for="search" class="search-form__label visually-hidden">Search</label>
+                <input
+                  type="text"
+                  id="search"
+                  name="search"
+                  class="search-form__input"
+                  placeholder="Enter city or zip code"
+                />
+              </form>
+            </div>
+            <div class="dropnav__unit-toggle unit-toggle">
+              <p class="unit-toggle__unit unit-toggle__unit--imperial">F</p>
+              <label for="toggle" class="unit-toggle__switch">
+                <input type="checkbox" id="toggle" class="unit-toggle__checkbox" />
+                <span class="unit-toggle__slider"><span>
+                </label>
+                <p class="unit-toggle__unit unit-toggle__unit--metric">C</p>
+              </div>
+
+          </section>
         </nav>
       </header>
 
       <main class="main">
-        <nav class="main__nav sidebar hide">
-          <section class="sidebar__search-bar">
-            <span
-              class="sidebar__icon sidebar__icon--search iconify"
-              data-icon="mdi:magnify"
-            ></span>
-            <form class="sidebar__search-form search-form" autocomplete="off">
-              <label for="search" class="search-form__label">Search:</label>
-              <input
-                type="text"
-                id="search"
-                name="search"
-                class="search-form__input"
-                placeholder="Enter city or zip code"
-              />
-            </form>
-          </section>
-          <section class="sidebar__unit-toggle unit-toggle">
-            <label for="toggle" class="unit-toggle__label">
-              <input type="checkbox" id="toggle" class="unit-toggle__checkbox" />
-            </label>
-          </section>
-        </nav>
         <div class="main__current-weather current-weather">
           <section class="current-weather__simple">
             <div class="current-weather__text">
@@ -76,10 +78,7 @@
               <i class="current-weather__icon current-weather__icon--wind wi wi-strong-wind"></i>
               <p class="current-weather__text current-weather__text--wind"></p>
             </div>
-            <div class="current-weather__rain">
-              <i class="current-weather__icon current-weather__icon--rain wi wi-raindrop"></i>
-              <p class="current-weather__text current-weather__text--rain"></p>
-            </div>
+            <div class="current-weather__precip"></div>
             <div class="current-weather__humidity">
               <i class="current-weather__icon current-weather__icon--humidity wi wi-humidity"></i>
               <p class="current-weather__text current-weather__text--humidity"></p>
@@ -128,7 +127,7 @@
             </div>
           </section>
         </div>
-      </main>
+      </main>      
       <footer class="footer"></footer>
     </div>
     <script
