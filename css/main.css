@@ -67,14 +67,8 @@ p {
   width: 1px;
 }
 
-.hide {
+.hide, .nav-hide {
   display: none;
-}
-
-@media (min-width: 600px) {
-  .wrapper {
-    overflow: hidden;
-  }
 }
 
 header {
@@ -90,7 +84,7 @@ header {
   padding: 2rem;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
 }
@@ -106,7 +100,7 @@ header {
 }
 
 .dropnav__logo {
-  width: 20vw;
+  width: clamp(9rem, 20vw, 11rem);
   position: absolute;
   top: 40%;
   left: 50%;
@@ -121,7 +115,7 @@ header {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  margin-top: auto;
+  margin-top: 7rem;
 }
 
 .dropnav__unit-toggle {
@@ -151,13 +145,14 @@ header {
   display: grid;
   -ms-grid-columns: inherit;
       grid-template-columns: inherit;
-  -ms-grid-rows: (95vh)[2];
-      grid-template-rows: repeat(2, 95vh);
+  -ms-grid-rows: (minmax(75rem, 95vh))[2];
+      grid-template-rows: repeat(2, minmax(75rem, 95vh));
 }
 
 .main > * {
   display: -ms-grid;
   display: grid;
+  height: 95vh;
   -ms-grid-columns: inherit;
       grid-template-columns: inherit;
 }
@@ -190,12 +185,6 @@ header {
   grid-area: poke;
 }
 
-.current-weather__extra {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: extra;
-}
-
 .main__icon--next {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
@@ -218,6 +207,12 @@ header {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: wk;
+}
+
+.future-weather .extra {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: extra;
 }
 
 .headnav {
@@ -268,15 +263,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.current-weather__extra {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .future-weather__hour {
@@ -387,6 +373,15 @@ header {
   gap: 1rem;
 }
 
+.extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .search-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -397,7 +392,7 @@ header {
 }
 
 .search-form__input {
-  width: 75vw;
+  width: clamp(20rem, 75vw, 38rem);
   height: 5rem;
   padding-left: 2rem;
   border-radius: 1rem;
@@ -514,13 +509,24 @@ header {
   bottom: .4rem;
   border-radius: 50%;
   background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.unit-toggle__checkbox:checked + .unit-toggle__slider:before {
+  -webkit-transform: translateX(26px);
+          transform: translateX(26px);
 }
 
 .splash {
+  z-index: 10;
   position: fixed;
   width: 100%;
   height: 100%;
-  background: white url(/img/stormeon_logo_horizontal.svg) center no-repeat;
+  background-color: white;
+  background-image: url(/img/stormeon_logo_horizontal.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .current-weather__simple {
@@ -554,11 +560,6 @@ header {
 
 .current-weather__date, .current-weather__time {
   font-size: clamp(1rem, 5vw, 1.5rem);
-}
-
-.current-weather__extra {
-  text-align: center;
-  line-height: 5rem;
 }
 
 .pokemon__type {
@@ -625,6 +626,10 @@ header {
   content: '\1F863';
 }
 
+.week::-webkit-scrollbar {
+  display: none;
+}
+
 .hour {
   text-align: center;
 }
@@ -633,46 +638,59 @@ header {
   min-width: 10rem;
 }
 
+.hour::-webkit-scrollbar {
+  display: none;
+}
+
+.extra {
+  text-align: center;
+  line-height: 5rem;
+}
+
+.pc-extra {
+  display: none;
+}
+
 .espeon {
   color: #eebeee;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#7c4b7c), color-stop(#b479b4), color-stop(#7c4b7c), to(#b479b4));
-  background-image: linear-gradient(to top, #7c4b7c, #b479b4, #7c4b7c, #b479b4);
+  background: -webkit-gradient(linear, left bottom, left top, from(#7c4b7c), color-stop(#b479b4), color-stop(#7c4b7c), to(#b479b4)) no-repeat fixed;
+  background: linear-gradient(to top, #7c4b7c, #b479b4, #7c4b7c, #b479b4) no-repeat fixed;
 }
 
 .flareon {
   color: #ffeea3;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7734b), color-stop(#d64354), color-stop(#f7734b), to(#d64354));
-  background-image: linear-gradient(to bottom, #f7734b, #d64354, #f7734b, #d64354);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7734b), color-stop(#d64354), color-stop(#f7734b), to(#d64354)) no-repeat fixed;
+  background: linear-gradient(to bottom, #f7734b, #d64354, #f7734b, #d64354) no-repeat fixed;
 }
 
 .glaceon {
   color: #95e7ee;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#383851), color-stop(#549ede), color-stop(#383851), to(#549ede));
-  background-image: linear-gradient(to top, #383851, #549ede, #383851, #549ede);
+  background: -webkit-gradient(linear, left bottom, left top, from(#383851), color-stop(#549ede), color-stop(#383851), to(#549ede)) no-repeat fixed;
+  background: linear-gradient(to top, #383851, #549ede, #383851, #549ede) no-repeat fixed;
 }
 
 .jolteon {
   color: #ffff8a;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#846a2a), color-stop(#cead4b), color-stop(#846a2a), to(#cead4b));
-  background-image: linear-gradient(to top, #846a2a, #cead4b, #846a2a, #cead4b);
+  background: -webkit-gradient(linear, left bottom, left top, from(#846a2a), color-stop(#cead4b), color-stop(#846a2a), to(#cead4b)) no-repeat fixed;
+  background: linear-gradient(to top, #846a2a, #cead4b, #846a2a, #cead4b) no-repeat fixed;
 }
 
 .leafeon {
   color: #f5ecd6;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#319b72), color-stop(#32625a), color-stop(#319b72), to(#32625a));
-  background-image: linear-gradient(to bottom, #319b72, #32625a, #319b72, #32625a);
+  background: -webkit-gradient(linear, left top, left bottom, from(#319b72), color-stop(#32625a), color-stop(#319b72), to(#32625a)) no-repeat fixed;
+  background: linear-gradient(to bottom, #319b72, #32625a, #319b72, #32625a) no-repeat fixed;
 }
 
 .umbreon {
   color: #eed453;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#2a324c), color-stop(#62627a), color-stop(#2a324c), to(#62627a));
-  background-image: linear-gradient(to top, #2a324c, #62627a, #2a324c, #62627a);
+  background: -webkit-gradient(linear, left bottom, left top, from(#2a324c), color-stop(#62627a), color-stop(#2a324c), to(#62627a)) no-repeat fixed;
+  background: linear-gradient(to top, #2a324c, #62627a, #2a324c, #62627a) no-repeat fixed;
 }
 
 .vaporeon {
   color: #93dbf1;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#107293), color-stop(#104860), color-stop(#107293), to(#104860));
-  background-image: linear-gradient(to bottom, #107293, #104860, #107293, #104860);
+  background: -webkit-gradient(linear, left top, left bottom, from(#107293), color-stop(#104860), color-stop(#107293), to(#104860)) no-repeat fixed;
+  background: linear-gradient(to bottom, #107293, #104860, #107293, #104860) no-repeat fixed;
 }
 
 @media only screen and (min-width: 730px) {
@@ -693,16 +711,18 @@ header {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    height: clamp(25rem, 27vh, 40rem);
     -ms-grid-columns: 40% 20%;
         grid-template-columns: 40% 20%;
         grid-template-areas: 'simple . poke';
   }
   .main__future-weather {
+    height: 50vh;
     -ms-grid-columns: (calc(33% - 1.2rem))[3];
         grid-template-columns: repeat(3, calc(33% - 1.2rem));
     -ms-grid-rows: minmax(25rem, 50%) minmax(25rem, 45%);
         grid-template-rows: minmax(25rem, 50%) minmax(25rem, 45%);
-        grid-template-areas: 'tmrw wk wk' 'hr hr .';
+        grid-template-areas: 'tmrw wk wk' 'hr hr extra';
     gap: 2rem;
   }
   .current-weather__simple {
@@ -714,11 +734,6 @@ header {
     -ms-grid-row: 1;
     -ms-grid-column: 3;
     grid-area: poke;
-  }
-  .current-weather__extra {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-    grid-area: extra;
   }
   .main__icon--next {
     -ms-grid-row: 4;
@@ -742,10 +757,18 @@ header {
     -ms-grid-column-span: 2;
     grid-area: wk;
   }
+  .future-weather .extra {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    grid-area: extra;
+  }
   .main__icon--next {
     display: none;
   }
-  .current-weather, .current-weather__extra {
+  .headnav__icon:not(.headnav__icon--refresh) {
+    z-index: 10;
+  }
+  .current-weather, .pc-extra {
     position: relative;
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -755,18 +778,6 @@ header {
     border: 2px solid rgba(255, 255, 255, 0.15);
     border-radius: 1.6rem;
     padding: 2rem;
-  }
-  .current-weather__extra {
-    position: absolute;
-    top: clamp(54rem, 61.7vh, 55rem);
-    left: 67%;
-    width: 24.5vw;
-    height: 28vh;
-    display: -ms-grid;
-    display: grid;
-    row-gap: 2rem;
-    -ms-grid-columns: (50%)[2];
-        grid-template-columns: repeat(2, 50%);
   }
   .pokemon {
     padding-right: 5rem;
@@ -782,17 +793,64 @@ header {
   .pokemon__image {
     width: clamp(15rem, 10vw, 17rem);
   }
+  .future-weather {
+    position: relative;
+  }
+  .future-weather__temp {
+    font-size: clamp(4rem, 3vw, 7rem);
+  }
+  .future-weather__icon--tomorrow {
+    font-size: clamp(5rem, 10vw, 10rem);
+  }
+  .dropnav {
+    width: 20%;
+    height: 100%;
+    z-index: 3;
+  }
+  .nav-hide {
+    display: block;
+  }
+  .search-form__input {
+    width: clamp(12rem, 18vw, 34rem);
+  }
+  .search-form__input::-webkit-input-placeholder {
+    font-size: clamp(1rem, 0.7vw, 5rem);
+  }
+  .search-form__input:-ms-input-placeholder {
+    font-size: clamp(1rem, 0.7vw, 5rem);
+  }
+  .search-form__input::-ms-input-placeholder {
+    font-size: clamp(1rem, 0.7vw, 5rem);
+  }
+  .search-form__input::placeholder {
+    font-size: clamp(1rem, 0.7vw, 5rem);
+  }
+  .splash {
+    z-index: 2;
+    background-position: 30%;
+    background-size: 50vw;
+  }
+  .pc-extra {
+    display: -ms-grid;
+    display: grid;
+    row-gap: 2rem;
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
+  }
+  .mobile-extra {
+    display: none;
+  }
 }
 
-.future-weather {
-  position: relative;
+@media only screen and (max-height: 860px) {
+  html {
+    font-size: 55%;
+  }
 }
 
-.future-weather__temp {
-  font-size: clamp(4rem, 3vw, 7rem);
-}
-
-.future-weather__icon--tomorrow {
-  font-size: clamp(5rem, 10vw, 10rem);
+@media only screen and (max-height: 750px) {
+  html {
+    font-size: 40%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
