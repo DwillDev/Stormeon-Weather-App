@@ -1,20 +1,63 @@
-.main__current-weather {
-  height:95vh;
+//Grid Structure
+.wrapper {
   display: grid;
+  justify-content: center;
   align-items: center;
-  grid-template-rows: 1fr 40rem .6fr .6fr;
-  grid-template-columns: minmax(32rem, 39rem);
-  grid-template-areas:
-    'simple'
-    'poke'
-    'extra'
-    'next';
+  grid-template-columns: minmax(32rem, 1fr);
 }
 
-.main__future-weather {
-  height:95vh;
+.main {
   display: grid;
-  grid-template-columns: minmax(32rem, 39rem);
-  grid-template-rows: repeat(3, minmax(24rem,30vh));
-  gap: 2rem;
+  grid-template-columns: inherit;
+  grid-template-rows: repeat(2, 95vh);
+
+  & > * {
+    display: grid;
+    grid-template-columns: inherit;
+  }
+
+  &__current-weather {
+    align-items: center;
+    grid-template-rows: 1fr 40rem 0.6fr 0.6fr;
+    grid-template-areas: 'simple' 'poke' 'extra' 'next';
+  }
+
+  &__future-weather {
+    grid-template-rows: repeat(3, minmax(24rem, 30vh));
+    gap: 2rem;
+    grid-template-areas: 'hr' 'tmrw' 'wk';
+  }
+}
+
+//Grid Areas
+.current-weather {
+  &__simple {
+    grid-area: simple;
+  }
+
+  &__pokemon {
+    grid-area: poke;
+  }
+
+  &__extra {
+    grid-area: extra;
+  }
+}
+
+.main__icon--next {
+  grid-area: next;
+}
+
+.future-weather {
+  &__tomorrow {
+    grid-area: tmrw;
+  }
+
+  &__hour {
+    grid-area: hr;
+  }
+
+  &__week {
+    grid-area: wk;
+  }
 }
