@@ -3,10 +3,45 @@ let apiKey = '9b9bc44cc70f3fd327b277e80a6e788b';
 
 //Toggle sidebar
 document.addEventListener('click', (e) => {
-  if (e.target == document.querySelector('.nav__icon--menu')) {
-    document.querySelector('.main__nav').classList.toggle('hide');
+  if (e.target == document.querySelector('.headnav__icon--menu')) {
+    document.querySelector('.dropnav').classList.toggle('hide');
+    fixScreenNav();
   }
 });
+
+//Toggle fixed state on nav and splash screen 
+
+let fixScreenNav = ()=>{
+  if(!document.querySelector('.dropnav').classList.contains('hide')){
+    document.querySelector('body').style.overflow='hidden';
+    document.querySelector('.headnav__icon--menu').style.color='white';
+  } else {
+    document.querySelector('body').style.overflow='unset';
+    document.querySelector('.headnav__icon--menu').style.color='unset';
+  }
+}
+
+let fixScreenSplash = ()=>{
+if(!document.querySelector('.splash').classList.contains('hide')){
+    document.querySelector('body').style.overflow='hidden';
+  }
+}
+
+//Hide splash screen
+let hideSplash= ()=>{
+  if(!document.querySelector('.splash').classList.contains('hide')){
+    document.querySelector('.splash').classList.add('hide');
+    document.querySelector('body').style.overflow='unset';
+  }
+}
+
+//Reset
+let reset =()=>{
+  document.querySelector('.headnav__icon--menu').style.color='unset';
+  document.querySelector('body').style.overflow='unset';
+  document.querySelector('.dropnav').classList.toggle('hide');
+  document.querySelector('.search-form__input').value="";
+}
 
 //Switch between Imperial and Metric
 let switchUnits = document.querySelector('#toggle');
@@ -33,7 +68,7 @@ switchUnits.addEventListener('change', () => {
 
 //Refresh Data
 document.addEventListener('click', (e) => {
-  if (e.target == document.querySelector('.nav__icon--refresh')) {
+  if (e.target == document.querySelector('.headnav__icon--refresh')) {
     getWeather();
   }
 });
@@ -50,6 +85,11 @@ let searchLocation = () => {
   getCityGoogle();
 };
 
+document.querySelector('.search-form').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  reset();
+})
+
 let lat;
 let lon;
 
@@ -59,8 +99,8 @@ let getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
-
       getCityBrowser();
+      hideSplash();
     });
   } else {
     alert('geolocation not supported or denied');
@@ -68,7 +108,7 @@ let getCurrentLocation = () => {
 };
 
 document.addEventListener('click', (e) => {
-  if (e.target == document.querySelector('.nav__icon--geolocation')) {
+  if (e.target == document.querySelector('.headnav__icon--geolocation')) {
     getCurrentLocation();
   }
 });
@@ -94,6 +134,10 @@ let getCityGoogle = () => {
     document.querySelector('.current-weather__city').innerHTML = result.vicinity;
     unitToggle();
     getWeather();
+    hideSplash();
+    reset();
+
+
   });
 };
 
@@ -148,13 +192,27 @@ let getWeather = () => {
       document.querySelector('.current-weather__text--wind').innerHTML = `${Math.round(
         weather.current.wind_speed
       )} ${speedSymbol}`;
+
+      let precip = ''
       if (weather.daily[0].rain) {
-        document.querySelector('.current-weather__text--rain').innerHTML = weather.daily[0].rain;
+        precip +=
+        ` <i class="current-weather__icon current-weather__icon--precip wi wi-raindrop"></i>             
+          <p class="current-weather__text current-weather__text--precip">${weather.daily[0].rain} mm</p>`
+        document.querySelector('.current-weather__precip').innerHTML = precip;
+      } else if (weather.daily[0].snow || (weather.daily[0].snow || weather.daily[0].rain)){
+        precip +=
+        ` <i class="current-weather__icon current-weather__icon--precip wi wi-snow"></i>             
+          <p class="current-weather__text current-weather__text--precip">${weather.daily[0].snow} mm</p>`
+          document.querySelector('.current-weather__precip').innerHTML = precip;
       } else {
-        document.querySelector('.current-weather__text--rain').innerHTML = '0';
+        precip +=
+        ` <i class="current-weather__icon current-weather__icon--precip wi wi-raindrop"></i>             
+        <p class="current-weather__text current-weather__text--precip">0 mm</p>`
+      document.querySelector('.current-weather__precip').innerHTML = precip;
       }
+
       document.querySelector('.current-weather__text--humidity').innerHTML =
-        weather.current.humidity;
+        `${weather.current.humidity}%`;
       document.querySelector('.current-weather__text--uv').innerHTML = weather.current.uvi;
 
       //Hourly
@@ -225,7 +283,7 @@ let getWeather = () => {
 
       switch (weather.current.weather[0].main) {
         case 'Thunderstorm':
-          document.querySelector('body').classList.replace(prevClass, 'jolteon');
+          document.querySelector('.wrapper').classList.replace(prevClass, 'jolteon');
           document.querySelector('.pokemon__type').src = '/img/Pokémon_Electric_Type_Icon.svg';
           document.querySelector('.pokemon__image').src = '/img/jolteon-3d.png';
           prevClass = document.querySelector('body').classList[0];
@@ -283,7 +341,8 @@ let getWeather = () => {
     });
 };
 
-window.addEventListener('load', searchLocation);
-
-//Remove later mayhaps
-window.addEventListener('load', getCurrentLocation());
+window.addEventListener('load', ()=>{
+  searchLocation();
+  getCurrentLocation()
+  fixScreenSplash();
+});
