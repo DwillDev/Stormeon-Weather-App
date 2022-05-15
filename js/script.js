@@ -314,8 +314,8 @@ let getWeather = () => {
         case 'Fog':
         case 'Haze':
           document.querySelector('body').classList.replace(prevClass, 'umbreon');
-          document.querySelector('.pokemon__type').src = "/img/Pokémon_Dark_Type_Icon.svg";
-          document.querySelector('.pokemon__image').src = "/img/umbreon-3d.png";
+          document.querySelector('.pokemon__type').src = "./img/Pokémon_Dark_Type_Icon.svg";
+          document.querySelector('.pokemon__image').src = "./img/umbreon-3d.png";
           prevClass = document.querySelector('body').classList[0];
           eon = 'Umbreon';
           break;
