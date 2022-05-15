@@ -58,10 +58,15 @@
   &__high::after {
     content: '\1F863';
   }
+
+  &::-webkit-scrollbar{
+    display:none;
+  }
 }
 
 .hour {
   text-align: center;
+  
 
   &__time {
     min-width: 10rem;
@@ -70,4 +75,18 @@
   &__temp::after {
     @extend %degree;
   }
+
+  &::-webkit-scrollbar{
+    display:none;
+  }
+}
+
+.extra {
+  text-align: center;
+  line-height: 5rem;
+}
+
+//Extra
+.pc-extra {
+display:none;
 }
