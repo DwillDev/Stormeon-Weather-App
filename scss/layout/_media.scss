@@ -1,0 +1,110 @@
+@media only screen and (min-width: 500px) {
+}
+
+@media only screen and (min-width: 730px) {
+  //Grid Structure
+  .wrapper {
+    // & > *{
+    //   border:1px solid black;
+    // }
+  }
+  .main {
+    width: 75%;
+    height: 95vh;
+    grid-template-rows: minmax(20vw, 30%) minmax(30rem, 70%);
+    gap: 2rem;
+
+    // & > * {
+    //   border:1px solid black;
+    // }
+
+    &__current-weather {
+      & > * {
+        border: 1px solid black;
+      }
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 'simple . poke';
+    }
+
+    &__future-weather {
+      visibility: hidden;
+    }
+  }
+
+  //Grid Areas
+  .current-weather {
+    &__simple {
+      grid-area: simple;
+    }
+
+    &__pokemon {
+      grid-area: poke;
+    }
+
+    &__extra {
+      grid-area: extra;
+    }
+  }
+
+  .main__icon--next {
+    grid-area: next;
+  }
+
+  .future-weather {
+    &__tomorrow {
+      grid-area: tmrw;
+    }
+
+    &__hour {
+      grid-area: hr;
+    }
+
+    &__week {
+      grid-area: wk;
+    }
+  }
+
+  //Icons
+  .main__icon--next {
+    display: none;
+  }
+
+  //Current Weather
+  .current-weather {
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(white, 0.1);
+    border: 2px solid rgba(white, 0.15);
+    border-radius: 1.6rem;
+    padding: 2rem;
+
+    &__simple {
+    }
+
+    &__extra {
+      // height:25rem;
+      // flex-direction: column;
+      // flex-wrap: wrap;
+    }
+  }
+
+  .pokemon {
+    justify-content: space-between;
+    &__type {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    &__advice {
+    }
+    &__image {
+      width: clamp(15rem, 10vw, 17rem);
+    }
+  }
+
+  //Future Weather
+  .future-weather {
+  }
+}
