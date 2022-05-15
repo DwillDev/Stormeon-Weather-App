@@ -40,5 +40,10 @@
     bottom: .4rem;
     border-radius:50%;
     background-color:$nav-txt;
+    transition: .4s;
   }
+  
+    &__checkbox:checked + &__slider:before {
+      transform: translateX(26px);
+    }
 }
