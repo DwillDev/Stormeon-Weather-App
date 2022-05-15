@@ -4,44 +4,44 @@ let apiKey = '9b9bc44cc70f3fd327b277e80a6e788b';
 //Toggle sidebar
 document.addEventListener('click', (e) => {
   if (e.target == document.querySelector('.headnav__icon--menu')) {
-    document.querySelector('.dropnav').classList.toggle('hide');
+    document.querySelector('.nav__dropnav').classList.toggle('nav-hide');
     fixScreenNav();
   }
 });
 
-//Toggle fixed state on nav and splash screen 
+//Toggle fixed state on nav and splash screen
 
-let fixScreenNav = ()=>{
-  if(!document.querySelector('.dropnav').classList.contains('hide')){
-    document.querySelector('body').style.overflow='hidden';
-    document.querySelector('.headnav__icon--menu').style.color='white';
+let fixScreenNav = () => {
+  if (!document.querySelector('.nav__dropnav').classList.contains('nav-hide')) {
+    document.querySelector('body').style.overflow = 'hidden';
+    document.querySelector('.headnav__icon--menu').style.color = 'white';
   } else {
-    document.querySelector('body').style.overflow='unset';
-    document.querySelector('.headnav__icon--menu').style.color='unset';
+    document.querySelector('body').style.overflow = 'unset';
+    document.querySelector('.headnav__icon--menu').style.color = 'unset';
   }
-}
+};
 
-let fixScreenSplash = ()=>{
-if(!document.querySelector('.splash').classList.contains('hide')){
-    document.querySelector('body').style.overflow='hidden';
+let fixScreenSplash = () => {
+  if (!document.querySelector('.splash').classList.contains('hide')) {
+    document.querySelector('body').style.overflow = 'hidden';
   }
-}
+};
 
 //Hide splash screen
-let hideSplash= ()=>{
-  if(!document.querySelector('.splash').classList.contains('hide')){
+let hideSplash = () => {
+  if (!document.querySelector('.splash').classList.contains('hide')) {
     document.querySelector('.splash').classList.add('hide');
-    document.querySelector('body').style.overflow='unset';
+    document.querySelector('body').style.overflow = 'unset';
   }
-}
+};
 
 //Reset
-let reset =()=>{
-  document.querySelector('.headnav__icon--menu').style.color='unset';
-  document.querySelector('body').style.overflow='unset';
+let reset = () => {
+  document.querySelector('.headnav__icon--menu').style.color = 'unset';
+  document.querySelector('body').style.overflow = 'unset';
   document.querySelector('.dropnav').classList.toggle('hide');
-  document.querySelector('.search-form__input').value="";
-}
+  document.querySelector('.search-form__input').value = '';
+};
 
 //Switch between Imperial and Metric
 let switchUnits = document.querySelector('#toggle');
@@ -85,10 +85,10 @@ let searchLocation = () => {
   getCityGoogle();
 };
 
-document.querySelector('.search-form').addEventListener('submit', (e)=>{
+document.querySelector('.search-form').addEventListener('submit', (e) => {
   e.preventDefault();
   reset();
-})
+});
 
 let lat;
 let lon;
@@ -136,8 +136,6 @@ let getCityGoogle = () => {
     getWeather();
     hideSplash();
     reset();
-
-
   });
 };
 
@@ -189,31 +187,31 @@ let getWeather = () => {
       ).innerHTML = `<i class="wi wi-owm-${weather.current.weather[0].id}"></i>`;
 
       //Extra
-      document.querySelector('.current-weather__text--wind').innerHTML = `${Math.round(
-        weather.current.wind_speed
-      )} ${speedSymbol}`;
+      for (i = 0; i < document.querySelectorAll('.extra').length; i++) {
+        document.querySelectorAll('.current-weather__text--wind')[i].innerHTML = `${Math.round(
+          weather.current.wind_speed
+        )} ${speedSymbol}`;
 
-      let precip = ''
-      if (weather.daily[0].rain) {
-        precip +=
-        ` <i class="current-weather__icon current-weather__icon--precip wi wi-raindrop"></i>             
-          <p class="current-weather__text current-weather__text--precip">${weather.daily[0].rain} mm</p>`
-        document.querySelector('.current-weather__precip').innerHTML = precip;
-      } else if (weather.daily[0].snow || (weather.daily[0].snow || weather.daily[0].rain)){
-        precip +=
-        ` <i class="current-weather__icon current-weather__icon--precip wi wi-snow"></i>             
-          <p class="current-weather__text current-weather__text--precip">${weather.daily[0].snow} mm</p>`
-          document.querySelector('.current-weather__precip').innerHTML = precip;
-      } else {
-        precip +=
-        ` <i class="current-weather__icon current-weather__icon--precip wi wi-raindrop"></i>             
-        <p class="current-weather__text current-weather__text--precip">0 mm</p>`
-      document.querySelector('.current-weather__precip').innerHTML = precip;
+        let precip = '';
+        if (weather.daily[0].rain) {
+          precip += ` <i class="current-weather__icon current-weather__icon--precip wi wi-raindrop"></i>             
+            <p class="current-weather__text current-weather__text--precip">${weather.daily[0].rain} mm</p>`;
+          document.querySelectorAll('.current-weather__precip')[i].innerHTML = precip;
+        } else if (weather.daily[0].snow || weather.daily[0].snow || weather.daily[0].rain) {
+          precip += ` <i class="current-weather__icon current-weather__icon--precip wi wi-snow"></i>             
+            <p class="current-weather__text current-weather__text--precip">${weather.daily[0].snow} mm</p>`;
+          document.querySelectorAll('.current-weather__precip')[i].innerHTML = precip;
+        } else {
+          precip += ` <i class="current-weather__icon current-weather__icon--precip wi wi-raindrop"></i>             
+          <p class="current-weather__text current-weather__text--precip">0 mm</p>`;
+          document.querySelectorAll('.current-weather__precip')[i].innerHTML = precip;
+        }
+
+        document.querySelectorAll('.current-weather__text--humidity')[
+          i
+        ].innerHTML = `${weather.current.humidity}%`;
+        document.querySelectorAll('.current-weather__text--uv')[i].innerHTML = weather.current.uvi;
       }
-
-      document.querySelector('.current-weather__text--humidity').innerHTML =
-        `${weather.current.humidity}%`;
-      document.querySelector('.current-weather__text--uv').innerHTML = weather.current.uvi;
 
       //Hourly
       let sunrise = new Date(weather.current.sunrise * 1000);
@@ -321,8 +319,8 @@ let getWeather = () => {
           prevClass = document.querySelector('body').classList[0];
           eon = 'Umbreon';
           break;
-        case "Smoke":
-        case "Ash":
+        case 'Smoke':
+        case 'Ash':
           document.querySelector('body').classList.replace(prevClass, 'flareon');
           document.querySelector('.pokemon__type').src = '/img/Pokémon_Fire_Type_Icon.svg';
           document.querySelector('.pokemon__image').src = '/img/flareon-3d.png';
@@ -337,12 +335,14 @@ let getWeather = () => {
           eon = 'espeon';
           break;
       }
-      document.querySelector('.pokemon__text').innerHTML = `${weather.current.weather[0].main} - Today's weather is perfect for your ${eon}!`;
+      document.querySelector(
+        '.pokemon__text'
+      ).innerHTML = `${weather.current.weather[0].main} - Today's weather is perfect for your ${eon}!`;
     });
 };
 
-window.addEventListener('load', ()=>{
+window.addEventListener('load', () => {
   searchLocation();
-  getCurrentLocation()
+  getCurrentLocation();
   fixScreenSplash();
 });
