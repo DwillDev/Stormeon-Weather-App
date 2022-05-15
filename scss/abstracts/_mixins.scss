@@ -1,4 +1,4 @@
 @mixin main-colors($color,$bg-color){
     color: $color;
-    background-image: $bg-color;
+    background: $bg-color no-repeat fixed;
 }
