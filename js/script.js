@@ -282,8 +282,8 @@ let getWeather = () => {
       switch (weather.current.weather[0].main) {
         case 'Thunderstorm':
           document.querySelector('.wrapper').classList.replace(prevClass, 'jolteon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Electric_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/jolteon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Electric_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/jolteon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'Jolteon';
           break;
@@ -291,22 +291,22 @@ let getWeather = () => {
         case 'Drizzle':
         case 'Mist':
           document.querySelector('body').classList.replace(prevClass, 'vaporeon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Water_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/vaporeon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Water_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/vaporeon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'Vaporeon';
           break;
         case 'Snow':
           document.querySelector('body').classList.replace(prevClass, 'glaceon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Ice_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/glaceon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Ice_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/glaceon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'Glaceon';
           break;
         case 'Clear':
           document.querySelector('body').classList.replace(prevClass, 'leafeon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Grass_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/leafeon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Grass_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/leafeon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'Leafeon';
           break;
@@ -314,23 +314,23 @@ let getWeather = () => {
         case 'Fog':
         case 'Haze':
           document.querySelector('body').classList.replace(prevClass, 'umbreon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Dark_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/umbreon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Dark_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/umbreon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'Umbreon';
           break;
         case 'Smoke':
         case 'Ash':
           document.querySelector('body').classList.replace(prevClass, 'flareon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Fire_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/flareon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Fire_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/flareon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'Flareon';
           break;
         default:
           document.querySelector('body').classList.replace(prevClass, 'espeon');
-          document.querySelector('.pokemon__type').src = '/img/Pokémon_Psychic_Type_Icon.svg';
-          document.querySelector('.pokemon__image').src = '/img/espeon-3d.png';
+          document.querySelector('.pokemon__type').src = './img/Pokémon_Psychic_Type_Icon.svg';
+          document.querySelector('.pokemon__image').src = './img/espeon-3d.png';
           prevClass = document.querySelector('body').classList[0];
           eon = 'espeon';
           break;
