@@ -1,47 +1,20 @@
 // 1. Configuration and helpers
-@import
-    'abstracts/variables',
-    'abstracts/functions',
-    'abstracts/extends',
-    'abstracts/mixins';
-
+@import 'abstracts/variables', 'abstracts/extends', 'abstracts/mixins';
 
 // 2. Base stuff
-@import
-    'base/base',
-    'base/fonts',
-    'base/typography',
-    'base/helpers';
+@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers';
 
 // 3. Layout-related sections
-@import
-    'layout/header',
-    'layout/nav',
-    'layout/footer',
-    'layout/sidebar',
-    'layout/grid';
+@import 'layout/header', 'layout/footer', 'layout/grid', 'layout/flex';
 
 // 4. Components
-@import
-    'components/weather-box',
-    'components/search',
-    'components/icon',
-    'components/button';
-
+@import 'components/search', 'components/icon', 'components/button';
 
 // 5. Page-specific styles
-@import
-    'pages/splash',
-    'pages/current-weather',
-    'pages/future-weather';
+@import 'pages/splash', 'pages/current-weather', 'pages/future-weather';
 
 // 6. Themes
-@import
-    'themes/espeon',
-    'themes/flareon',
-    'themes/glaceon',
-    'themes/jolteon',
-    'themes/leafeon',
-    'themes/sylveon',
-    'themes/umbreon',
-    'themes/vaporeon';
+@import 'themes/themes';
+
+//7. For order purposes
+@import 'layout/media';
