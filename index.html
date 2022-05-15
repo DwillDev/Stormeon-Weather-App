@@ -15,16 +15,16 @@
       <header>
         <nav class="header__nav nav">
           <section class="nav__headnav headnav">
-            <i class="headnav__icon nav__icon--refresh wi wi-refresh"></i>
+            <i class="headnav__icon headnav__icon--refresh wi wi-refresh"></i>
             <div class="headnav__divider">
               <span
-                class="headnav__icon nav__icon--geolocation iconify"
+                class="headnav__icon headnav__icon--geolocation iconify"
                 data-icon="mdi:pokemon-go"
               ></span>
               <span class="headnav__icon headnav__icon--menu iconify" data-icon="mdi:menu"></span>
             </div>
           </section>
-          <section class="nav__dropnav dropnav hide">
+          <section class="nav__dropnav dropnav nav-hide">
             <img src="/img/stormeon_logo_ball__white.svg" class="dropnav__logo" />
             <div class="dropnav__search-bar">
               <form class="dropnav__search-form search-form" autocomplete="off">
@@ -73,7 +73,7 @@
             </div>
             <img src="" alt="An eeveelution that corresponds to the current weather conditions" class="pokemon__image" />
           </section>
-          <section class="current-weather__extra">
+          <section class="mobile-extra extra">
             <div class="current-weather__wind">
               <i class="current-weather__icon current-weather__icon--wind wi wi-strong-wind"></i>
               <p class="current-weather__text current-weather__text--wind"></p>
@@ -94,6 +94,24 @@
           <span class="main__icon main__icon--next iconify" data-icon="mdi:chevron-down"></span>
         </div>
         <div class="main__future-weather future-weather">
+          <section class="pc-extra extra">
+            <div class="current-weather__wind">
+              <i class="current-weather__icon current-weather__icon--wind wi wi-strong-wind"></i>
+              <p class="current-weather__text current-weather__text--wind"></p>
+            </div>
+            <div class="current-weather__precip"></div>
+            <div class="current-weather__humidity">
+              <i class="current-weather__icon current-weather__icon--humidity wi wi-humidity"></i>
+              <p class="current-weather__text current-weather__text--humidity"></p>
+            </div>
+            <div class="current-weather__uv">
+              <span
+                class="current-weather__icon current-weather__icon--uv iconify"
+                data-icon="carbon:uv-index-alt"
+              ></span>
+              <p class="current-weather__text current-weather__text--uv"></p>
+            </div>
+          </section>
           <section class="future-weather__hour">
             <h3 class="future-weather__header future-weather__header--hour">Hourly Forecast</h3>
             <div class="future-weather__content future-weather__content--sun">
