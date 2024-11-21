@@ -1,5 +1,5 @@
 //OpenWeather API Key
-let apiKey = '9b9bc44cc70f3fd327b277e80a6e788b';
+let apiKey = 'd6795d17b00fea85ff795b131a7db162';
 
 //Toggle sidebar
 document.addEventListener('click', (e) => {
